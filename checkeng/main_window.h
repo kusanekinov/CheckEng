@@ -1,21 +1,20 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
+#pragma once
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace Ui {
+    class MainWindow;
+}
 
-class MainWindow : public QMainWindow
-{
+class MainWindow: public QMainWindow {
     Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
+ public:
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
+ private slots:
+    void onAboutClick();
+
+ private:
+    Ui::MainWindow* ui = nullptr;
 };
-#endif // MAINWINDOW_H
