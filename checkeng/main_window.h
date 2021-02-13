@@ -15,6 +15,7 @@ class MainWindow: public QMainWindow {
 
  private slots:
     void onAboutClick();
+    void onStart();
 
  private:
     Ui::MainWindow* ui = nullptr;
