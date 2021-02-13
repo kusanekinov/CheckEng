@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     LoginDialog dlg;
     if(dlg.exec() == QDialog::Accepted) {
         MainWindow w;
-        w.showFullScreen();
+        w.show();
         return a.exec();
     }
 }

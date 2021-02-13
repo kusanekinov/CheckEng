@@ -18,15 +18,17 @@ void LoginDialog::onAccepted() noexcept
     ui->m_info->setText({});
     if(onChanged())
         return;
-
-    ui->b_login->setEnabled(false);
-    QApplication::processEvents();
+    inherited::accept();
 }
 bool LoginDialog::onChanged() noexcept
 {
     auto const is = ui->m_login->text().isEmpty();
     ui->b_login->setDisabled(is);
     return is;
+}
+QString LoginDialog::name() const noexcept
+{
+    return ui->m_login->text();
 }
 LoginDialog::~LoginDialog()
 {

@@ -14,7 +14,7 @@ class LoginDialog: public QDialog {
  public:
     explicit LoginDialog(QWidget* parent = nullptr);
     virtual ~LoginDialog() override;
-
+    QString name() const noexcept;
 
  private slots:
     bool onChanged() noexcept;
