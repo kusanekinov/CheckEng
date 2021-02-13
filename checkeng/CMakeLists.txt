@@ -26,6 +26,7 @@ set(LIBS
 add_executable(checkeng
     main.cpp
     main_window.cpp
+    login/login.cpp
     main_window.h
     main_window.ui
     ${TS_FILES}
