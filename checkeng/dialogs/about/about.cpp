@@ -2,7 +2,7 @@
 #include "ui_about.h"
 
 AboutDialog::AboutDialog(QWidget *parent)
-    : QDialog(parent, Qt::FramelessWindowHint)
+    : QDialog(parent)
     , ui(new Ui::About)
 {
     ui->setupUi(this);    

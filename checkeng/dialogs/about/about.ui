@@ -6,13 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
-    <height>325</height>
+    <width>400</width>
+    <height>207</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>MS Shell Dlg 2</family>
+    <family>DejaVu Sans</family>
+    <pointsize>14</pointsize>
+    <weight>50</weight>
+    <bold>false</bold>
    </font>
   </property>
   <property name="windowTitle">
@@ -37,34 +40,6 @@
    <property name="bottomMargin">
     <number>25</number>
    </property>
-   <item>
-    <widget class="QPushButton" name="pb_close">
-     <property name="minimumSize">
-      <size>
-       <width>30</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>30</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::RightToLeft</enum>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="spacing">
@@ -102,6 +77,14 @@
         </property>
         <item>
          <widget class="QLabel" name="l_title">
+          <property name="font">
+           <font>
+            <family>DejaVu Sans</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>About program</string>
           </property>
@@ -131,48 +114,24 @@
            <item>
             <layout class="QHBoxLayout" name="hl">
              <item>
-              <spacer name="hs_3">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Minimum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
               <widget class="QWidget" name="w_logoAbout" native="true">
                <property name="styleSheet">
                 <string notr="true"/>
                </property>
               </widget>
              </item>
-             <item>
-              <spacer name="hs_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Minimum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
             </layout>
            </item>
            <item>
             <widget class="QLabel" name="l_aboutSurv">
+             <property name="font">
+              <font>
+               <family>DejaVu Sans</family>
+               <pointsize>14</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="text">
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CheckEng&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
@@ -198,6 +157,14 @@
             <layout class="QHBoxLayout" name="hl_2">
              <item>
               <widget class="QLabel" name="l_ver">
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>14</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
                <property name="layoutDirection">
                 <enum>Qt::RightToLeft</enum>
                </property>
@@ -211,6 +178,17 @@
              </item>
              <item>
               <widget class="QLabel" name="l_verInfo">
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>14</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
                <property name="text">
                 <string>v.1.0</string>
                </property>
@@ -222,6 +200,14 @@
             <layout class="QHBoxLayout" name="hor4">
              <item>
               <widget class="QLabel" name="l_autor">
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>14</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
                <property name="layoutDirection">
                 <enum>Qt::RightToLeft</enum>
                </property>
@@ -235,6 +221,14 @@
              </item>
              <item>
               <widget class="QLabel" name="l_autorInfo">
+               <property name="font">
+                <font>
+                 <family>DejaVu Sans</family>
+                 <pointsize>14</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Vlad Panin</string>
                </property>
@@ -269,22 +263,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>pb_close</sender>
-   <signal>clicked()</signal>
-   <receiver>About</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>653</x>
-     <y>21</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>338</x>
-     <y>241</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
