@@ -26,11 +26,19 @@ void MainWindow::setName(QString const& name) noexcept
 void MainWindow::onStart()
 {
     QFile file("tests/1/test1.txt");
-    QByteArray data;
-    if (!file.open(QIODevice::ReadOnly))
-        return;
-    data = file.readAll();
-    qDebug() << QString(data);
+        if(file.open(QIODevice::ReadOnly |QIODevice::Text))
+        {
+            while(!file.atEnd())
+            {
+                QString str = file.readLine();
+                qDebug() <<str;
+            }
+
+        }
+        else
+        {
+            qDebug()<< "don't open file";
+        }
 }
 
 
