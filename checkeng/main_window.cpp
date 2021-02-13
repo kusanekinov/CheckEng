@@ -18,3 +18,7 @@ void MainWindow::onAboutClick()
    AboutDialog dlg;
    dlg.exec();
 }
+void MainWindow::setName(QString const& name) noexcept
+{
+    m_name=name;
+}

@@ -11,10 +11,12 @@ class MainWindow: public QMainWindow {
  public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
+    void setName(QString const& name) noexcept;
 
  private slots:
     void onAboutClick();
 
  private:
     Ui::MainWindow* ui = nullptr;
+    QString m_name;
 };

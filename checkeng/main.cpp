@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     LoginDialog dlg;
     if(dlg.exec() == QDialog::Accepted) {
         MainWindow w;
+        w.setName(dlg.name());
         w.show();
         return a.exec();
     }
