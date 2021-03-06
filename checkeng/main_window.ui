@@ -199,9 +199,60 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pb_first</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onFirstAnswerClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>281</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_second</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onSecondAnswerClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>397</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_third</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onThirdAnswerClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onAboutClick()</slot>
   <slot>onStart()</slot>
+  <slot>onFirstAnswerClick()</slot>
+  <slot>onSecondAnswerClick()</slot>
+  <slot>onThirdAnswerClick()</slot>
  </slots>
 </ui>

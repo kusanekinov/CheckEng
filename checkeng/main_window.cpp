@@ -24,6 +24,17 @@ void MainWindow::setName(QString const& name) noexcept
 {
     m_name=name;
 }
+void MainWindow::nextTask()
+{
+    if(m_index >= m_tasks.size())
+    {
+        qDebug()<< "Finish" << m_right << m_right * 100 / m_tasks.size();
+        return;
+    }
+    auto task = m_tasks[m_index];
+    ui->l_question->setText(task.question());
+    randomize(task.answer1(), task.answer2(), task.answer3());
+}
 void MainWindow::onStart()
 {
     QFile file("tests/1/test1.txt");
@@ -60,12 +71,10 @@ void MainWindow::onStart()
     }
 
     m_index = 0;
+    m_right = 0;
 
-    auto task = m_tasks[m_index];
-    ui->l_question->setText(task.question());
-    randomize(task.answer1(), task.answer2(), task.answer3());
+    nextTask();
 }
-
 void MainWindow::randomize(QString const& first, QString const& second, QString const& third)
 {
      QVector<QPushButton*> V{ui->pb_first, ui->pb_second, ui->pb_third};
@@ -77,5 +86,26 @@ void MainWindow::randomize(QString const& first, QString const& second, QString 
      V.remove(x);
      V[0]->setText(third);
 }
+void MainWindow::answer(QPushButton* btn)
+{
+    if(m_index >= m_tasks.size())
+        return;
 
-
+    auto task = m_tasks[m_index];
+    if(task.answer1() == btn->text())
+        ++m_right;
+    ++m_index;
+    nextTask();
+}
+void MainWindow::onFirstAnswerClick()
+{
+    answer(ui->pb_first);
+}
+void MainWindow::onSecondAnswerClick()
+{
+    answer(ui->pb_second);
+}
+void MainWindow::onThirdAnswerClick()
+{
+    answer(ui->pb_third);
+}
