@@ -24,10 +24,10 @@ set(HEADER_FILES
     ${FINISH_PATH}/finish_global.h    
 )
 set(SOURCE_FILES
-    ${FINISH_PATH}/FINISH.cpp    
+    ${FINISH_PATH}/finish.cpp
 )
 set(FORMS
-    ${FINISH_PATH}/FINISH.ui
+    ${FINISH_PATH}/finish.ui
 )
 qt5_wrap_ui(UI_FILES
     ${FORMS}

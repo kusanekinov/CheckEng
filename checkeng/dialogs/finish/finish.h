@@ -6,7 +6,7 @@ namespace Ui {
     class Finish;
 }
 
-class FINISH_SHARED_EXPORTFinishDialog final: public QDialog {
+class FINISH_DIALOG_SHARED_EXPORT FinishDialog final: public QDialog {
     Q_OBJECT
     Q_DISABLE_COPY(FinishDialog)
 

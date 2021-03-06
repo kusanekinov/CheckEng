@@ -21,6 +21,7 @@ add_subdirectory(dialogs)
 
 set(LIBS
     aboutdlg
+    finishdlg
 )
 
 add_executable(checkeng

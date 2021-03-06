@@ -1,7 +1,8 @@
 #include "main_window.h"
-#include "./ui_main_window.h"
+#include "ui_main_window.h"
 #include <QDebug>
 #include "dialogs/about/about.h"
+#include "dialogs/finish/finish.h"
 #include <QFile>
 #include <cstdlib>
 
@@ -28,7 +29,10 @@ void MainWindow::nextTask()
 {
     if(m_index >= m_tasks.size())
     {
-        qDebug()<< "Finish" << m_right << m_right * 100 / m_tasks.size();
+      //  qDebug()<< "Finish" << m_right << m_right * 100 / m_tasks.size();
+        FinishDialog dlg;
+        dlg.exec();
+
         return;
     }
     auto task = m_tasks[m_index];
