@@ -27,4 +27,8 @@ class MainWindow: public QMainWindow {
     QString m_name;
     tasts_t m_tasks;
     int m_index;
+
+ private:
+    void randomize(QString const& first, QString const& second, QString const& third);
+
 };

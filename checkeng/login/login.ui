@@ -183,6 +183,26 @@
             </property>
             <item row="1" column="1">
              <widget class="QLineEdit" name="m_login">
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>1000</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <pointsize>15</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="maxLength">
                <number>32</number>
               </property>
@@ -222,10 +242,22 @@
             </item>
             <item row="0" column="1">
              <widget class="QLabel" name="l_login">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>40</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>DejaVu Sans</family>
-                <pointsize>14</pointsize>
+                <pointsize>25</pointsize>
                </font>
               </property>
               <property name="text">
@@ -257,6 +289,24 @@
              <widget class="QPushButton" name="b_login">
               <property name="enabled">
                <bool>false</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>MS Shell Dlg 2</family>
+                <pointsize>15</pointsize>
+               </font>
               </property>
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
@@ -355,22 +405,6 @@
           <number>0</number>
          </property>
         </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="l_version">
-         <property name="font">
-          <font>
-           <family>DejaVu Sans</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>CheckEng</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
        </item>
       </layout>
      </item>

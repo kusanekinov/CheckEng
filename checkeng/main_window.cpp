@@ -3,6 +3,7 @@
 #include <QDebug>
 #include "dialogs/about/about.h"
 #include <QFile>
+#include <cstdlib>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -62,9 +63,19 @@ void MainWindow::onStart()
 
     auto task = m_tasks[m_index];
     ui->l_question->setText(task.question());
-    ui->pb_answer1->setText(task.answer1());
-    ui->pb_answer2->setText(task.answer2());
-    ui->pb_answer3->setText(task.answer3());
+    randomize(task.answer1(), task.answer2(), task.answer3());
+}
+
+void MainWindow::randomize(QString const& first, QString const& second, QString const& third)
+{
+     QVector<QPushButton*> V{ui->pb_first, ui->pb_second, ui->pb_third};
+     int x = rand()%3;
+     V[x]->setText(first);
+     V.remove(x);
+     x = rand()%2;
+     V[x]->setText(second);
+     V.remove(x);
+     V[0]->setText(third);
 }
 
 
