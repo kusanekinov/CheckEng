@@ -17,10 +17,22 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0" colspan="3">
      <widget class="QLabel" name="l_question">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>1000</width>
-        <height>300</height>
+        <width>16777215</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="font">
@@ -54,7 +66,7 @@
     <item row="2" column="0" colspan="3">
      <widget class="QPushButton" name="pb_first">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -62,13 +74,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>0</height>
+        <height>100</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>1000</width>
-        <height>110</height>
+        <width>16777215</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="font">
@@ -89,10 +101,22 @@
     </item>
     <item row="6" column="0" colspan="3">
      <widget class="QPushButton" name="pb_third">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>1000</width>
-        <height>110</height>
+        <width>16777215</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="font">
@@ -109,10 +133,22 @@
     </item>
     <item row="3" column="0" colspan="3">
      <widget class="QPushButton" name="pb_second">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>1000</width>
-        <height>110</height>
+        <width>16777215</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="font">
