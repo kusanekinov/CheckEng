@@ -181,8 +181,8 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="action_About"/>
     <addaction name="a_start"/>
+    <addaction name="action_About"/>
    </widget>
    <addaction name="menuAbout"/>
   </widget>
