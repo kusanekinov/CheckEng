@@ -1,22 +1,37 @@
-#ifndef ONE_OF_THREE_H
-#define ONE_OF_THREE_H
-
+#pragma once
 #include <QWidget>
+#include "task.h"
+#include <QPushButton>
 
 namespace Ui {
-class OneOfThree;
+    class OneOfThree;
 }
 
-class OneOfThree : public QWidget
+class OneOfThree: public QWidget
 {
     Q_OBJECT
+
+public:
+   using tasts_t = QList<Task>;
 
 public:
     explicit OneOfThree(QWidget *parent = nullptr);
     ~OneOfThree();
 
 private:
-    Ui::OneOfThree *ui;
+   void answer(QPushButton* btn);
+   void nextTask();
+   void randomize(QString const& first, QString const& second, QString const& third);
+
+private:
+    void onFirstAnswerClick();
+    void onSecondAnswerClick();
+    void onThirdAnswerClick();
+
+private:
+   Ui::OneOfThree* ui = nullptr;
+   tasts_t m_tasks;
+   int m_index;
+   int m_right = 0;
 };
 
-#endif // ONE_OF_THREE_H
