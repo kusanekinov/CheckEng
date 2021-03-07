@@ -1,19 +1,25 @@
+#include <QFile>
+#include <QDebug>
 #include "one_of_three.h"
 #include "ui_one_of_three.h"
+#include "context.h"
+#include "dialogs/finish/finish.h"
 
-OneOfThree::OneOfThree(QWidget *parent) :
+OneOfThreeWidget::OneOfThreeWidget(QWidget* parent):
     QWidget(parent),
-    ui(new Ui::OneOfThree)
+    ui(new Ui::OneOfThreeWidget)
 {
-    ui->setupUi(this);
+    gt::create(ui, parent);
+ //   ui->setupUi(this);
 }
-
-OneOfThree::~OneOfThree()
+OneOfThreeWidget::~OneOfThreeWidget()
 {
     delete ui;
 }
-void MainWindow::onStart() //
+void OneOfThreeWidget::start(QString const& name)
 {
+    m_name = name;
+
     QFile file("tests/1/test1.txt");
     if(!file.open(QIODevice::ReadOnly |QIODevice::Text)) {
         qDebug()<< "don't open file";
@@ -52,20 +58,19 @@ void MainWindow::onStart() //
 
     nextTask();
 }
-void OneOfThree::nextTask()
+void OneOfThreeWidget::nextTask()
 {
-    if(m_index >= m_tasks.size())
-    {
+    if(m_index >= m_tasks.size()) {
         FinishDialog dlg(m_name, m_right, m_tasks.size());
         dlg.exec();
 
         return;
     }
     auto task = m_tasks[m_index];
-    // ui->l_question->setText(task.question());
+    ui->l_question->setText(task.question());
     randomize(task.answer1(), task.answer2(), task.answer3());
 }
-void OneOfThree::answer(QPushButton* btn)
+void OneOfThreeWidget::answer(QPushButton* btn)
 {
     if(m_index >= m_tasks.size())
         return;
@@ -76,19 +81,19 @@ void OneOfThree::answer(QPushButton* btn)
     ++m_index;
     nextTask();
 }
-void OneOfThree::onFirstAnswerClick()
+void OneOfThreeWidget::onFirstAnswerClick()
 {
     // answer(ui->pb_first);
 }
-void OneOfThree::onSecondAnswerClick()
+void OneOfThreeWidget::onSecondAnswerClick()
 {
     // answer(ui->pb_second);
 }
-void OneOfThree::onThirdAnswerClick()
+void OneOfThreeWidget::onThirdAnswerClick()
 {
    //  answer(ui->pb_third);
 }
-void OneOfThree::randomize(QString const& first, QString const& second, QString const& third)
+void OneOfThreeWidget::randomize(QString const& first, QString const& second, QString const& third)
 {
      /* QVector<QPushButton*> V{ui->pb_first, ui->pb_second, ui->pb_third};
      int x = rand()%3;

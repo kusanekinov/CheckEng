@@ -4,19 +4,19 @@
 #include <QPushButton>
 
 namespace Ui {
-    class OneOfThree;
+    class OneOfThreeWidget;
 }
 
-class OneOfThree: public QWidget
-{
+class OneOfThreeWidget: public QWidget {
     Q_OBJECT
 
 public:
    using tasts_t = QList<Task>;
 
 public:
-    explicit OneOfThree(QWidget *parent = nullptr);
-    ~OneOfThree();
+    explicit OneOfThreeWidget(QWidget* parent = nullptr);
+    ~OneOfThreeWidget();
+    void start(QString const& name);
 
 private:
    void answer(QPushButton* btn);
@@ -29,9 +29,10 @@ private:
     void onThirdAnswerClick();
 
 private:
-   Ui::OneOfThree* ui = nullptr;
+   Ui::OneOfThreeWidget* ui = nullptr;
    tasts_t m_tasks;
-   int m_index;
+   int m_index = 0;
    int m_right = 0;
+   QString m_name;
 };
 

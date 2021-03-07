@@ -18,7 +18,7 @@ namespace gt {
     **/
     template<class T>
     inline void create(T*& ui, QWidget* content) {
-        gt::content::removeChildren(content);
+        removeChildren(content);
         delete ui;
         ui = nullptr;
         ui = new T{};
