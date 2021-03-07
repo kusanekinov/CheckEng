@@ -30,6 +30,8 @@ private:
     void onFirstAnswerClick();
     void onSecondAnswerClick();
     void onThirdAnswerClick();
+    void save() noexcept;
+    void load() noexcept;
 
  private:
     Ui::MainWindow* ui = nullptr;

@@ -5,15 +5,18 @@
 #include "dialogs/finish/finish.h"
 #include <QFile>
 #include <cstdlib>
+#include <QSettings>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    load();
 }
 MainWindow::~MainWindow()
 {
+    save();
     delete ui;
 }
 void MainWindow::onAboutClick()
@@ -112,4 +115,22 @@ void MainWindow::onSecondAnswerClick()
 void MainWindow::onThirdAnswerClick()
 {
     answer(ui->pb_third);
+}
+void MainWindow::save() noexcept
+{
+    auto const& group = QStringLiteral("dialogs/main/");
+    QSettings settings;
+    settings.beginGroup(group);
+    settings.setValue(QStringLiteral("state"), saveState());
+    settings.setValue(QStringLiteral("geometry"), saveGeometry());
+    settings.endGroup();
+}
+void MainWindow::load() noexcept
+{
+    auto const& group = QStringLiteral("dialogs/main/");
+    QSettings settings;
+    settings.beginGroup(group);
+    restoreState(settings.value(QStringLiteral("state")).toByteArray());
+    restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
+    settings.endGroup();
 }
