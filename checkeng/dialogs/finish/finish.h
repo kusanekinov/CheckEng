@@ -15,7 +15,7 @@ public:
     using inherited  = QDialog;
 
 public:
-    explicit FinishDialog(QWidget* parent = nullptr);
+    explicit FinishDialog(QString const& name, int right, int total, QWidget* parent = nullptr);
     ~FinishDialog() override;
 
 private:

@@ -32,8 +32,7 @@ void MainWindow::nextTask()
 {
     if(m_index >= m_tasks.size())
     {
-      //  qDebug()<< "Finish" << m_right << m_right * 100 / m_tasks.size();
-        FinishDialog dlg;
+        FinishDialog dlg(m_name, m_right, m_tasks.size());
         dlg.exec();
 
         return;
