@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.16)
 project(checkeng LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -22,6 +22,7 @@ add_subdirectory(dialogs)
 set(LIBS
     aboutdlg
     finishdlg
+    addtasksdlg
 )
 
 add_executable(checkeng

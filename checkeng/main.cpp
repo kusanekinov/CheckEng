@@ -1,7 +1,8 @@
+#include <cstdlib>
 #include "main_window.h"
 #include <QApplication>
 #include "login/login.h"
-#include <cstdlib>
+#include "dialogs/add_tasks/add_tasks.h"
 
 void init()
 {
@@ -19,11 +20,18 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     init();
-    LoginDialog dlg;
-    if(dlg.exec() == QDialog::Accepted) {
-        MainWindow w;
-        w.setName(dlg.name());
-        w.show();
-        return a.exec();
-    }
+
+    AddTasksDialog dlg;
+    if(dlg.exec() != QDialog::Accepted)
+         return EXIT_SUCCESS;
+
+
+//    LoginDialog dlg;
+//    if(dlg.exec() == QDialog::Accepted) {
+//        MainWindow w;
+//        w.setName(dlg.name());
+//        w.show();
+//        return a.exec();
+//    }
+    return EXIT_SUCCESS;
 }
