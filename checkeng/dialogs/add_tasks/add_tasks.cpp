@@ -1,7 +1,10 @@
 #include <QUuid>
+#include <QMessageBox>
+#include <QFile>
 #include "add_tasks.h"
 #include "ui_add_tasks.h"
 #include "include/checker.h"
+#include "include/program.h"
 
 AddTasksDialog::AddTasksDialog(QWidget* parent)
     : QDialog(parent)
@@ -26,10 +29,25 @@ bool AddTasksDialog::onChanged() noexcept
 }
 void AddTasksDialog::onNextClicked() noexcept
 {
-   qDebug()<<m_file;
+   if(!onChanged())
+       return (void) QMessageBox::warning(this,  program::fullName(), tr("Enter a vaid data!"), QMessageBox::Ok);
+
+   QFile file(program::paths::test1() + m_file);
+       if (!file.open(QIODevice::Append | QIODevice::Text))
+           return (void) QMessageBox::warning(this, program::fullName(), tr("Cannot open the file %1!").arg(m_file), QMessageBox::Ok);
+
+   QTextStream out(&file);
+   out << ui->le_task->text() << "\n";
+   out << ui->le_answer1->text() << "\n";
+   out << ui->le_answer2->text() << "\n";
+   out << ui->le_answer3->text() << "\n\n";
 }
 void AddTasksDialog::onFinishClicked() noexcept
 {
-
+    if(!onChanged()) {
+        QMessageBox::warning(this, tr("CheckEng"),
+                                       tr("Enter a vaid data!"), QMessageBox::Ok);
+        return;
+    }
 }
 

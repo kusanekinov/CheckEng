@@ -1,6 +1,9 @@
 #include <cstdlib>
-#include "main_window.h"
 #include <QApplication>
+#include <QDir>
+#include "include/program.h"
+#include "main_window.h"
+
 #include "login/login.h"
 #include "dialogs/add_tasks/add_tasks.h"
 #include "dialogs/choose/choose.h"
@@ -14,6 +17,10 @@ void init()
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+
+    QDir dir{program::paths::test1()};
+    if(!dir.exists())
+        dir.mkpath(program::paths::test1());
 }
 int main(int argc, char *argv[])
 {

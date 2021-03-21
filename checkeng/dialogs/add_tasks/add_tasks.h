@@ -1,10 +1,9 @@
 #pragma once
 #include "add_tasks_pch.h"
+#include "include/typedefs.h"
 #include "add_tasks_global.h"
 
-namespace Ui {
-    class AddTasks;
-}
+GT_UI(AddTasks)
 
 class ADD_TASKS_DIALOG_SHARED_EXPORT AddTasksDialog final: public QDialog {
     Q_OBJECT
