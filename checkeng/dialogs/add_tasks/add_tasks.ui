@@ -19,76 +19,301 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string notr="true">Add_questions</string>
+   <string notr="true">Add Task</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QPushButton" name="pb_new">
-     <property name="text">
-      <string>&amp;Add new tasks</string>
-     </property>
-    </widget>
+    <layout class="QGridLayout" name="ql">
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="le_asnwer3">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QCheckBox" name="cb_answer1">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&amp;Right Key</string>
+       </property>
+       <property name="buddy">
+        <cstring>cb_answer1</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>3.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="le_answer1">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>1.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="le_answer2">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <widget class="QCheckBox" name="ch_answer3">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&amp;Answers</string>
+       </property>
+       <property name="buddy">
+        <cstring>le_answer1</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QCheckBox" name="ch_answer2">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>2.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="le_task">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="l_task">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&amp;Enter task</string>
+       </property>
+       <property name="buddy">
+        <cstring>le_task</cstring>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
-    <widget class="Line" name="line">
+    <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-    </widget>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="vl">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="l_tasks">
-       <property name="text">
-        <string>Current tasks</string>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pb_cancel">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&amp;Cancel</string>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="vl_2"/>
+      <widget class="QPushButton" name="pb_finish">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>&amp;Finish</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+      <widget class="QPushButton" name="pb_nexttask">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>17</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
+       <property name="text">
+        <string>&amp;Next task</string>
        </property>
-      </spacer>
+      </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>le_answer1</tabstop>
+  <tabstop>cb_answer1</tabstop>
+  <tabstop>le_answer2</tabstop>
+  <tabstop>ch_answer2</tabstop>
+  <tabstop>le_asnwer3</tabstop>
+  <tabstop>ch_answer3</tabstop>
+  <tabstop>pb_cancel</tabstop>
+  <tabstop>pb_finish</tabstop>
+  <tabstop>pb_nexttask</tabstop>
+ </tabstops>
  <resources/>
  <connections>
-  <connection>
-   <sender>pb_new</sender>
-   <signal>clicked()</signal>
-   <receiver>AddTasks</receiver>
-   <slot>onAddNewTasksClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>240</x>
-     <y>269</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>479</x>
-     <y>269</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>AddTasks</sender>
    <signal>rejected()</signal>
@@ -106,7 +331,4 @@
    </hints>
   </connection>
  </connections>
- <slots>
-  <slot>onAddNewTasksClicked()</slot>
- </slots>
 </ui>

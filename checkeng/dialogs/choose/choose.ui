@@ -19,7 +19,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string notr="true">Add_questions</string>
+   <string notr="true">Choose</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
