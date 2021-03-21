@@ -26,16 +26,19 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QGridLayout" name="ql">
-     <item row="7" column="1">
-      <widget class="QLineEdit" name="le_asnwer3">
+    <layout class="QGridLayout" name="ql" columnstretch="0,2,0">
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="le_answer1">
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
+       </property>
+       <property name="maxLength">
+        <number>256</number>
        </property>
       </widget>
      </item>
@@ -44,7 +47,7 @@
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -52,32 +55,135 @@
        <property name="text">
         <string>&amp;Right Key</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>rb_answer1</cstring>
+       </property>
       </widget>
      </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_2">
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
        <property name="text">
-        <string>3.</string>
+        <string>&amp;Answers</string>
+       </property>
+       <property name="buddy">
+        <cstring>le_answer1</cstring>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="le_answer1">
+     <item row="5" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rb_answer1">
+         <property name="font">
+          <font>
+           <family>DejaVu Sans</family>
+           <pointsize>20</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="7" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <spacer name="horizontalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rb_answer3">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_4">
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
+       </property>
+       <property name="text">
+        <string>2.</string>
        </property>
       </widget>
      </item>
@@ -86,7 +192,7 @@
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -101,64 +207,104 @@
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
+       <property name="maxLength">
+        <number>256</number>
+       </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="label_2">
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="le_answer3">
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="maxLength">
+        <number>256</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
        <property name="text">
-        <string>&amp;Answers</string>
-       </property>
-       <property name="buddy">
-        <cstring>le_answer1</cstring>
+        <string>3.</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="font">
-        <font>
-         <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>2.</string>
-       </property>
-      </widget>
+     <item row="6" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rb_answer2">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
-     <item row="3" column="1">
+     <item row="3" column="1" colspan="2">
       <widget class="QLineEdit" name="le_task">
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
+       <property name="maxLength">
+        <number>256</number>
+       </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="2" column="1" colspan="2">
       <widget class="QLabel" name="l_task">
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -168,27 +314,6 @@
        </property>
        <property name="buddy">
         <cstring>le_task</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QRadioButton" name="radioButton">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <widget class="QRadioButton" name="radioButton_2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="2">
-      <widget class="QRadioButton" name="radioButton_3">
-       <property name="text">
-        <string/>
        </property>
       </widget>
      </item>
@@ -227,7 +352,7 @@
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -239,10 +364,13 @@
      </item>
      <item>
       <widget class="QPushButton" name="pb_finish">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -254,10 +382,13 @@
      </item>
      <item>
       <widget class="QPushButton" name="pb_nexttask">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>17</pointsize>
+         <pointsize>15</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -274,7 +405,7 @@
  <tabstops>
   <tabstop>le_answer1</tabstop>
   <tabstop>le_answer2</tabstop>
-  <tabstop>le_asnwer3</tabstop>
+  <tabstop>le_answer3</tabstop>
   <tabstop>pb_cancel</tabstop>
   <tabstop>pb_finish</tabstop>
   <tabstop>pb_nexttask</tabstop>
@@ -297,5 +428,122 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pb_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>AddTasks</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>714</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_finish</sender>
+   <signal>clicked()</signal>
+   <receiver>AddTasks</receiver>
+   <slot>onFinishClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>800</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_nexttask</sender>
+   <signal>clicked()</signal>
+   <receiver>AddTasks</receiver>
+   <slot>onNextClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>898</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>le_answer1</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AddTasks</receiver>
+   <slot>onChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>435</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>le_answer2</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AddTasks</receiver>
+   <slot>onChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>435</x>
+     <y>161</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>le_answer3</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AddTasks</receiver>
+   <slot>onChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>435</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>le_task</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AddTasks</receiver>
+   <slot>onChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>492</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>onChanged()</slot>
+  <slot>onNextClicked()</slot>
+  <slot>onFinishClicked()</slot>
+ </slots>
 </ui>

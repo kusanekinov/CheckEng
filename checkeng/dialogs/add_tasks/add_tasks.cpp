@@ -1,5 +1,6 @@
 #include "add_tasks.h"
 #include "ui_add_tasks.h"
+#include "include/checker.h"
 
 AddTasksDialog::AddTasksDialog(QWidget* parent)
     : QDialog(parent)
@@ -11,7 +12,22 @@ AddTasksDialog::~AddTasksDialog()
 {
     delete ui;
 }
-void AddTasksDialog::onAddNewTasksClicked() noexcept
+bool AddTasksDialog::onChanged() noexcept
+{
+    auto const is = gt::checker::textSize(ui->le_task,1,256) &&
+            gt::checker::textSize(ui->le_answer1,1,256) &&
+            gt::checker::textSize(ui->le_answer2,1,256) &&
+            gt::checker::textSize(ui->le_answer3,1,256);
+    ui->pb_finish->setEnabled(is);
+    ui->pb_nexttask->setEnabled(is);
+    return is;
+}
+void AddTasksDialog::onNextClicked() noexcept
 {
 
 }
+void AddTasksDialog::onFinishClicked() noexcept
+{
+
+}
+

@@ -19,7 +19,9 @@ class ADD_TASKS_DIALOG_SHARED_EXPORT AddTasksDialog final: public QDialog {
     ~AddTasksDialog() override;
 
  private slots:
-    void onAddNewTasksClicked() noexcept;
+    bool onChanged() noexcept;
+    void onNextClicked() noexcept;
+    void onFinishClicked() noexcept;
 
  private:
     Ui::AddTasks* ui = nullptr;

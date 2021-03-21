@@ -17,6 +17,7 @@ include_directories(${ADD_TASKS_PATH})
 add_definitions(-DADD_TASKS_DIALOG_LIBRARY)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Gui REQUIRED)
+find_package(Qt5Network REQUIRED)
 
 set(HEADER_FILES
     ${ADD_TASKS_PATH}/add_tasks.h
@@ -42,4 +43,5 @@ add_library(${LIBRARY_NAME} SHARED
 target_link_libraries(${LIBRARY_NAME}
     Qt5::Widgets
     Qt5::Gui
+    Qt5::Network
 )
