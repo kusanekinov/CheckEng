@@ -1,11 +1,8 @@
-#include "login.h"
-#include "ui_login.h"
+
 #include <QTimer>
 #include <QDate>
-/*#include "include/app.h"
-#include "src/main_http.h"
-#include "src/options/network.h"
-#include <gt/settings/settings.h> */
+#include "login.h"
+#include "ui_login.h"
 
 LoginDialog::LoginDialog(QWidget* parent)
     : QDialog(parent)
