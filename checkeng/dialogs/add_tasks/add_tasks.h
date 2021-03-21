@@ -25,4 +25,5 @@ class ADD_TASKS_DIALOG_SHARED_EXPORT AddTasksDialog final: public QDialog {
 
  private:
     Ui::AddTasks* ui = nullptr;
+    QString m_file;
 };

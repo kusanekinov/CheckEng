@@ -1,3 +1,4 @@
+#include <QUuid>
 #include "add_tasks.h"
 #include "ui_add_tasks.h"
 #include "include/checker.h"
@@ -6,7 +7,8 @@ AddTasksDialog::AddTasksDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AddTasks)
 {
-    ui->setupUi(this);    
+    ui->setupUi(this);
+    m_file = QUuid::createUuid().toString();
 }
 AddTasksDialog::~AddTasksDialog()
 {
@@ -24,7 +26,7 @@ bool AddTasksDialog::onChanged() noexcept
 }
 void AddTasksDialog::onNextClicked() noexcept
 {
-
+   qDebug()<<m_file;
 }
 void AddTasksDialog::onFinishClicked() noexcept
 {
