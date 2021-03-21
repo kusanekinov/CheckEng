@@ -57,13 +57,13 @@ namespace program {
                 .arg(date());
     }
     inline QString organizationName() noexcept {
-        return GT_STR("GIT");
+        return GT_STR("CheckEng");
     }
     inline QString organizationDomain() noexcept {
-        return GT_STR("git-holding.ru");
+        return GT_STR("checkeng.ru");
     }
     inline QString homeFolder() noexcept {
-        return QDir::home().absolutePath() + GT_STR("/.githolding");
+        return QDir::home().absolutePath() + GT_STR("/checkeng_tests");
     }
     inline QString help() noexcept {
         return GT_APP_PATH("/Help/Help.chm")
@@ -106,7 +106,7 @@ namespace program {
             return GT_APP_PATH("/translations")
         }
         inline auto test1() noexcept -> QString {
-            return GT_APP_PATH("/test101");
+            return HOME_PATH("/test1");
         }
     }
 }

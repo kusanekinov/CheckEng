@@ -25,8 +25,11 @@ class ADD_TASKS_DIALOG_SHARED_EXPORT AddTasksDialog final: public QDialog {
     bool writeToFile() noexcept;
     void onCancel() noexcept;
     int writeRightAnswer(QTextStream &out) noexcept;
+    void save() noexcept;
+    void load() noexcept;
 
  private:
     Ui::AddTasks* ui = nullptr;
     QString m_file;
+    bool m_is_next = false;
 };

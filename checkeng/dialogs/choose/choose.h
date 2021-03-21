@@ -20,6 +20,7 @@ class CHOOSE_DIALOG_SHARED_EXPORT ChooseDialog final: public QDialog {
 
  private slots:
     void onAddNewTasksClicked() noexcept;
+    void loadFiles() noexcept;
 
  private:
     Ui::Choose* ui = nullptr;

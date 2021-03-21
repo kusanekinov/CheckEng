@@ -12,9 +12,11 @@ AddTasksDialog::AddTasksDialog(QWidget* parent)
 {
     ui->setupUi(this);
     m_file = QUuid::createUuid().toString();
+    load();
 }
 AddTasksDialog::~AddTasksDialog()
 {
+    save();
     delete ui;
 }
 bool AddTasksDialog::onChanged() noexcept
@@ -23,7 +25,7 @@ bool AddTasksDialog::onChanged() noexcept
             gt::checker::textSize(ui->le_answer1,1,256) &&
             gt::checker::textSize(ui->le_answer2,1,256) &&
             gt::checker::textSize(ui->le_answer3,1,256);
-    ui->pb_finish->setEnabled(is);
+    ui->pb_finish->setEnabled(is || m_is_next);
     ui->pb_nexttask->setEnabled(is);
     return is;
 }
@@ -41,8 +43,8 @@ void AddTasksDialog::onNextClicked() noexcept
 }
 void AddTasksDialog::onFinishClicked() noexcept
 {
-    if(!writeToFile())
-        return;
+    if(onChanged())
+        writeToFile();
 
     inherited::accept();
 }
@@ -53,7 +55,7 @@ bool AddTasksDialog::writeToFile() noexcept
        return false;
    }
 
-   QFile file(program::paths::test1() + m_file);
+   QFile file(program::paths::test1() + GT_STR("/") + m_file );
    if (!file.open(QIODevice::Append | QIODevice::Text)) {
        QMessageBox::warning(this, program::fullName(), tr("Cannot open the file %1!").arg(m_file), QMessageBox::Ok);
        return false;
@@ -75,11 +77,12 @@ bool AddTasksDialog::writeToFile() noexcept
        out << gt::trim(ui->le_answer2->text()) << "\n\n";
    }
 
+   m_is_next = true;
    return true;
 }
 void AddTasksDialog::onCancel() noexcept
 {
-    QFile file(program::paths::test1() + m_file);
+    QFile file(program::paths::test1() + GT_STR("/") + m_file);
     if(file.exists())
         file.remove();
     reject();
@@ -96,5 +99,21 @@ int AddTasksDialog::writeRightAnswer(QTextStream &out) noexcept
     }
     out << gt::trim(ui->le_answer3->text()) << "\n";
     return 3;
+}
+void AddTasksDialog::save() noexcept
+{
+    auto const& group = QStringLiteral("dialogs/add_tasks/");
+    QSettings settings;
+    settings.beginGroup(group);
+    settings.setValue(QStringLiteral("geometry"), saveGeometry());
+    settings.endGroup();
+}
+void AddTasksDialog::load() noexcept
+{
+    auto const& group = QStringLiteral("dialogs/add_tasks/");
+    QSettings settings;
+    settings.beginGroup(group);
+    restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
+    settings.endGroup();
 }
 
