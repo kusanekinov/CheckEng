@@ -23,6 +23,7 @@ set(LIBS
     aboutdlg
     finishdlg
     addtasksdlg
+    choosesdlg
 )
 
 add_executable(checkeng

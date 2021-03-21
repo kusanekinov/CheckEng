@@ -3,6 +3,7 @@
 #include <QApplication>
 #include "login/login.h"
 #include "dialogs/add_tasks/add_tasks.h"
+#include "dialogs/choose/choose.h"
 
 void init()
 {
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     init();
 
-    AddTasksDialog dlg;
+    ChooseDialog dlg;
     if(dlg.exec() != QDialog::Accepted)
          return EXIT_SUCCESS;
 
