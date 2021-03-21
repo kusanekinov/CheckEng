@@ -1,2 +1,3 @@
 add_subdirectory(about)
 add_subdirectory(finish)
+add_subdirectory(add_tasks)

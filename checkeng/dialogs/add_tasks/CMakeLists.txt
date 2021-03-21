@@ -1,5 +1,5 @@
-project(Add_questions)
-set(LIBRARY_NAME "add_questionsdlg")
+project(AddTasks)
+set(LIBRARY_NAME "addtasksdlg")
 
 message("-- Configuring "  ${LIBRARY_NAME} " lib")
 
@@ -8,26 +8,26 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_PATH})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_PATH})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_PATH})
-set(ABOUT_PATH ${APP_PATH}/dialogs/add_questions)
+set(ADD_TASKS_PATH ${APP_PATH}/dialogs/add_tasks)
 
 include_directories(${SRC_PATH})
 include_directories(${APP_PATH})
-include_directories(${ADD_QUESTIONS_PATH})
+include_directories(${ADD_TASKS_PATH})
 
-add_definitions(-DADD_QUESTIONS_DIALOG_LIBRARY)
+add_definitions(-DADD_TASKS_DIALOG_LIBRARY)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Gui REQUIRED)
 
 set(HEADER_FILES
-    ${ADD_QUESTIONS_PATH}/add_questions.h
-    ${ADD_QUESTIONS_PATH}/add_questions_pch.h
-    ${ADD_QUESTIONS_PATH}/add_questions_global.h    
+    ${ADD_TASKS_PATH}/add_tasks.h
+    ${ADD_TASKS_PATH}/add_tasks_pch.h
+    ${ADD_TASKS_PATH}/add_tasks_global.h    
 )
 set(SOURCE_FILES
-    ${ADD_QUESTIONS_PATH}/add_questions.cpp    
+    ${ADD_TASKS_PATH}/add_tasks.cpp    
 )
 set(FORMS
-    ${ADD_QUESTIONS_PATH}/add_questions.ui
+    ${ADD_TASKS_PATH}/add_tasks.ui
 )
 qt5_wrap_ui(UI_FILES
     ${FORMS}
