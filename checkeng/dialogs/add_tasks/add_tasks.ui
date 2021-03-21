@@ -403,9 +403,13 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>le_task</tabstop>
   <tabstop>le_answer1</tabstop>
   <tabstop>le_answer2</tabstop>
   <tabstop>le_answer3</tabstop>
+  <tabstop>rb_answer1</tabstop>
+  <tabstop>rb_answer2</tabstop>
+  <tabstop>rb_answer3</tabstop>
   <tabstop>pb_cancel</tabstop>
   <tabstop>pb_finish</tabstop>
   <tabstop>pb_nexttask</tabstop>
@@ -416,7 +420,7 @@
    <sender>AddTasks</sender>
    <signal>rejected()</signal>
    <receiver>AddTasks</receiver>
-   <slot>reject()</slot>
+   <slot>onCancel()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>479</x>
@@ -432,7 +436,7 @@
    <sender>pb_cancel</sender>
    <signal>clicked()</signal>
    <receiver>AddTasks</receiver>
-   <slot>reject()</slot>
+   <slot>onCancel()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>714</x>
@@ -545,5 +549,6 @@
   <slot>onChanged()</slot>
   <slot>onNextClicked()</slot>
   <slot>onFinishClicked()</slot>
+  <slot>onCancel()</slot>
  </slots>
 </ui>

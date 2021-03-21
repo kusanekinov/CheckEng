@@ -2,6 +2,7 @@
 #include "add_tasks_pch.h"
 #include "include/typedefs.h"
 #include "add_tasks_global.h"
+#include <QTextStream>
 
 GT_UI(AddTasks)
 
@@ -21,6 +22,9 @@ class ADD_TASKS_DIALOG_SHARED_EXPORT AddTasksDialog final: public QDialog {
     bool onChanged() noexcept;
     void onNextClicked() noexcept;
     void onFinishClicked() noexcept;
+    bool writeToFile() noexcept;
+    void onCancel() noexcept;
+    int writeRightAnswer(QTextStream &out) noexcept;
 
  private:
     Ui::AddTasks* ui = nullptr;

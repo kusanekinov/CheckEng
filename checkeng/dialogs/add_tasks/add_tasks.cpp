@@ -29,25 +29,72 @@ bool AddTasksDialog::onChanged() noexcept
 }
 void AddTasksDialog::onNextClicked() noexcept
 {
-   if(!onChanged())
-       return (void) QMessageBox::warning(this,  program::fullName(), tr("Enter a vaid data!"), QMessageBox::Ok);
+    if(!writeToFile())
+        return;
 
-   QFile file(program::paths::test1() + m_file);
-       if (!file.open(QIODevice::Append | QIODevice::Text))
-           return (void) QMessageBox::warning(this, program::fullName(), tr("Cannot open the file %1!").arg(m_file), QMessageBox::Ok);
+    ui->le_task->setText("");
+    ui->le_answer1->setText("");
+    ui->le_answer2->setText("");
+    ui->le_answer3->setText("");
 
-   QTextStream out(&file);
-   out << ui->le_task->text() << "\n";
-   out << ui->le_answer1->text() << "\n";
-   out << ui->le_answer2->text() << "\n";
-   out << ui->le_answer3->text() << "\n\n";
+    onChanged();
 }
 void AddTasksDialog::onFinishClicked() noexcept
 {
-    if(!onChanged()) {
-        QMessageBox::warning(this, tr("CheckEng"),
-                                       tr("Enter a vaid data!"), QMessageBox::Ok);
+    if(!writeToFile())
         return;
+
+    inherited::accept();
+}
+bool AddTasksDialog::writeToFile() noexcept
+{
+   if(!onChanged()) {
+       QMessageBox::warning(this,  program::fullName(), tr("Enter a vaid data!"), QMessageBox::Ok);
+       return false;
+   }
+
+   QFile file(program::paths::test1() + m_file);
+   if (!file.open(QIODevice::Append | QIODevice::Text)) {
+       QMessageBox::warning(this, program::fullName(), tr("Cannot open the file %1!").arg(m_file), QMessageBox::Ok);
+       return false;
+   }
+
+   QTextStream out(&file);
+   out << gt::trim(ui->le_task->text()) << "\n";
+   auto const res = writeRightAnswer(out);
+   if(res == 1) {
+       out << gt::trim(ui->le_answer2->text()) << "\n";
+       out << gt::trim(ui->le_answer3->text()) << "\n\n";
+   }
+   else if(res == 2) {
+       out << gt::trim(ui->le_answer1->text()) << "\n";
+       out << gt::trim(ui->le_answer3->text()) << "\n\n";
+   }
+   else {
+       out << gt::trim(ui->le_answer1->text()) << "\n";
+       out << gt::trim(ui->le_answer2->text()) << "\n\n";
+   }
+
+   return true;
+}
+void AddTasksDialog::onCancel() noexcept
+{
+    QFile file(program::paths::test1() + m_file);
+    if(file.exists())
+        file.remove();
+    reject();
+}
+int AddTasksDialog::writeRightAnswer(QTextStream &out) noexcept
+{
+    if(ui->rb_answer1->isChecked()){
+        out << gt::trim(ui->le_answer1->text()) << "\n";
+        return 1;
     }
+    else if(ui->rb_answer2->isChecked()){
+        out << gt::trim(ui->le_answer2->text()) << "\n";
+        return 2;
+    }
+    out << gt::trim(ui->le_answer3->text()) << "\n";
+    return 3;
 }
 
