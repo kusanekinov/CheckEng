@@ -1,4 +1,3 @@
-
 #include <QTimer>
 #include <QDate>
 #include "login.h"
@@ -15,6 +14,7 @@ void LoginDialog::onAccepted() noexcept
     ui->m_info->setText({});
     if(onChanged())
         return;
+
     inherited::accept();
 }
 bool LoginDialog::onChanged() noexcept

@@ -2,7 +2,7 @@
 #include <QDebug>
 #include "one_of_three.h"
 #include "ui_one_of_three.h"
-#include "context.h"
+#include "include/context.h"
 #include "dialogs/finish/finish.h"
 
 OneOfThreeWidget::OneOfThreeWidget(QWidget* parent):
