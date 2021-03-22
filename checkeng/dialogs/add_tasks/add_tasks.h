@@ -14,6 +14,7 @@ class ADD_TASKS_DIALOG_SHARED_EXPORT AddTasksDialog final: public QDialog {
     using class_name = AddTasksDialog;
     using inherited  = QDialog;
 
+
  public:
     explicit AddTasksDialog(QWidget* parent = nullptr);
     ~AddTasksDialog() override;
