@@ -38,9 +38,12 @@ void ChooseDialog::loadFiles() noexcept
     auto lay = new QVBoxLayout(ui->w_tasks);
     while (it.hasNext()) {
         auto const& name = it.next();
+        auto const& filename = QFileInfo(name).fileName()[0] != QChar('{')
+            ? QFileInfo(name).fileName()
+            : GT_STR("Text Task %1").arg(cx++);
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
-        auto btn = new QPushButton(GT_STR("Text Task %1").arg(cx++));
+        auto btn = new QPushButton(filename);
         btn->setProperty("file", name);
         QObject::connect(btn, &QToolButton::clicked, [] () {
 
