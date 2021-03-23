@@ -28,7 +28,7 @@
    <item>
     <widget class="QLabel" name="l_question">
      <property name="text">
-      <string/>
+      <string>fffffffff</string>
      </property>
     </widget>
    </item>

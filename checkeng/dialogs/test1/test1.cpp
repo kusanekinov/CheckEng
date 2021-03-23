@@ -13,14 +13,12 @@ Test1Dialog::Test1Dialog(QString const& filename, QWidget *parent)
     , ui(new Ui::Test1)
     , m_filename(filename)
 {
+    ui->setupUi(this);
+    start();
 }
 Test1Dialog::~Test1Dialog()
 {
     delete ui;
-}
-void Test1Dialog::resizeEvent(QResizeEvent*)
-{
-    start();
 }
 void Test1Dialog::start()
 {

@@ -2,7 +2,6 @@
 #include "test1_pch.h"
 #include "test1_global.h"
 #include <QList>
-#include <QResizeEvent>
 #include "task.h"
 
 namespace Ui {
@@ -16,21 +15,20 @@ class TEST1_DIALOG_SHARED_EXPORT Test1Dialog final: public QDialog {
 public:
     using class_name = Test1Dialog;
     using inherited  = QDialog;
-    using tasts_t = QList<Task>;
+    using tasts_t    = QList<Task>;
 
 private:
-    void start();
     void nextTask();
     void onFirstAnswerClick();
     void onSecondAnswerClick();
     void onThirdAnswerClick();
     void answer(QPushButton* btn);
     void randomize(QString const& first, QString const& second, QString const& third);
-    void resizeEvent(QResizeEvent* event) override;
 
 public:
     explicit Test1Dialog(QString const& name, QWidget* parent = nullptr);
     ~Test1Dialog() override;
+    void start();
 
 private:
     Ui::Test1* ui = nullptr;
