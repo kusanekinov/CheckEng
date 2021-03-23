@@ -24,6 +24,7 @@ set(LIBS
     finishdlg
     addtasksdlg
     choosesdlg
+    test1dlg
 )
 
 add_executable(checkeng
