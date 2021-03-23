@@ -43,4 +43,5 @@ target_link_libraries(${LIBRARY_NAME}
     Qt5::Widgets
     Qt5::Gui
     addtasksdlg
+    test1dlg
 )

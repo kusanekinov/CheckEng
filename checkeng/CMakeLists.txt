@@ -31,10 +31,8 @@ add_executable(checkeng
     main.cpp
     main_window.cpp
     login/login.cpp
-    one_of_three/one_of_three.cpp
 
     main_window.ui
-    one_of_three/one_of_three.ui
     ${TS_FILES}
 )
 

@@ -42,4 +42,5 @@ add_library(${LIBRARY_NAME} SHARED
 target_link_libraries(${LIBRARY_NAME}
     Qt5::Widgets
     Qt5::Gui
+    finishdlg
 )

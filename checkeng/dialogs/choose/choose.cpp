@@ -8,6 +8,7 @@
 #include "ui_choose.h"
 #include "dialogs/add_tasks/add_tasks.h"
 #include "include/context.h"
+#include "dialogs/test1/test1.h"
 
 ChooseDialog::ChooseDialog(QWidget* parent)
     : QDialog(parent)
@@ -45,8 +46,9 @@ void ChooseDialog::loadFiles() noexcept
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
         btn->setProperty("file", name);
-        QObject::connect(btn, &QToolButton::clicked, [] () {
-
+        QObject::connect(btn, &QToolButton::clicked, [name] () {
+            Test1Dialog dlg(name);
+            dlg.exec();
         });
         v->addWidget(btn);
 

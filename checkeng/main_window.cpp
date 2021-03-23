@@ -4,7 +4,6 @@
 #include "main_window.h"
 #include "ui_main_window.h"
 #include "dialogs/about/about.h"
-#include "one_of_three/one_of_three.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,8 +28,7 @@ void MainWindow::setName(QString const& name) noexcept
 }
 void MainWindow::onStart()
 {
-    OneOfThreeWidget w(ui->centralwidget);
-    w.start(m_name);
+
 }
 void MainWindow::save() noexcept
 {

@@ -65,16 +65,16 @@ bool AddTasksDialog::writeToFile() noexcept
    out << gt::trim(ui->le_task->text()) << "\n";
    auto const res = writeRightAnswer(out);
    if(res == 1) {
-       out << gt::trim(ui->le_answer2->text()) << "\n";
-       out << gt::trim(ui->le_answer3->text()) << "\n\n";
+       out << '-' << gt::trim(ui->le_answer2->text()) << "\n";
+       out << '-' << gt::trim(ui->le_answer3->text()) << "\n\n";
    }
    else if(res == 2) {
-       out << gt::trim(ui->le_answer1->text()) << "\n";
-       out << gt::trim(ui->le_answer3->text()) << "\n\n";
+       out << '-' << gt::trim(ui->le_answer1->text()) << "\n";
+       out << '-' << gt::trim(ui->le_answer3->text()) << "\n\n";
    }
    else {
-       out << gt::trim(ui->le_answer1->text()) << "\n";
-       out << gt::trim(ui->le_answer2->text()) << "\n\n";
+       out << '-' << gt::trim(ui->le_answer1->text()) << "\n";
+       out << '-' << gt::trim(ui->le_answer2->text()) << "\n\n";
    }
 
    m_is_next = true;
@@ -90,14 +90,14 @@ void AddTasksDialog::onCancel() noexcept
 int AddTasksDialog::writeRightAnswer(QTextStream &out) noexcept
 {
     if(ui->rb_answer1->isChecked()){
-        out << gt::trim(ui->le_answer1->text()) << "\n";
+        out << '-' << gt::trim(ui->le_answer1->text()) << "\n";
         return 1;
     }
     else if(ui->rb_answer2->isChecked()){
-        out << gt::trim(ui->le_answer2->text()) << "\n";
+        out << '-' << gt::trim(ui->le_answer2->text()) << "\n";
         return 2;
     }
-    out << gt::trim(ui->le_answer3->text()) << "\n";
+    out << '-' << gt::trim(ui->le_answer3->text()) << "\n";
     return 3;
 }
 void AddTasksDialog::save() noexcept
