@@ -7,26 +7,31 @@
 #include <QList>
 #include <QDebug>
 #include <QPushButton>
+#include <QStringLiteral>
+#include <QMediaPlayer>
 
-Test2Dialog::Test2Dialog(QString const& filename, QString const& name, QWidget *parent)
+Test2Dialog::Test2Dialog(QString const& dir, QString const& name, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Test2)
-    , m_filename(filename)
+    , m_dir(dir)
     , m_name(name)
+    , m_player(new QMediaPlayer)
 {
     ui->setupUi(this);
     ui->l_first->installEventFilter(this);
     ui->l_second->installEventFilter(this);
     ui->l_third->installEventFilter(this);
+    ui->tb_play->setProperty("isPlay", false);
     start();
 }
 Test2Dialog::~Test2Dialog()
 {
     delete ui;
+    delete m_player;
 }
 void Test2Dialog::start()
 {
-    QFile file(m_filename);
+    QFile file(m_dir + "/index.txt");
     if(!file.open(QIODevice::ReadOnly |QIODevice::Text))
         return;
 
@@ -65,6 +70,10 @@ void Test2Dialog::start()
 }
 void Test2Dialog::nextTask()
 {
+    m_player->stop();
+    ui->tb_play->setIcon(QIcon(QStringLiteral(":/svg/play.png")));
+    ui->tb_play->setProperty("isPlay", false);
+
     if(m_index >= m_tasks.size()) {
         FinishDialog dlg(m_name, m_right, m_tasks.size());
         dlg.exec();
@@ -75,6 +84,7 @@ void Test2Dialog::nextTask()
     auto task = m_tasks[m_index];
     ui->l_question->setText(task.question());
     randomize(task.answer1(), task.answer2(), task.answer3());
+    m_cx++;
 }
 void Test2Dialog::answer(QLabel* btn)
 {
@@ -110,4 +120,18 @@ void Test2Dialog::randomize(QString const& first, QString const& second, QString
      V[x]->setText(second);
      V.remove(x);
      V[0]->setText(third);
+}
+void Test2Dialog::onPlayClicked() noexcept
+{
+    if(!ui->tb_play->property("isPlay").toBool()) {
+        m_player->setMedia(QUrl::fromLocalFile(m_dir + QStringLiteral("/") + QString::number(m_cx) + QStringLiteral(".mp3")));
+        m_player->play();
+        ui->tb_play->setIcon(QIcon(QStringLiteral(":/svg/pause.png")));
+        ui->tb_play->setProperty("isPlay", true);
+    }
+    else {
+        m_player->stop();
+        ui->tb_play->setIcon(QIcon(QStringLiteral(":/svg/play.png")));
+        ui->tb_play->setProperty("isPlay", false);
+    }
 }

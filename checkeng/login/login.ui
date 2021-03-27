@@ -198,7 +198,7 @@
               <property name="font">
                <font>
                 <family>DejaVu Sans</family>
-                <pointsize>15</pointsize>
+                <pointsize>16</pointsize>
                 <weight>50</weight>
                 <bold>false</bold>
                </font>
@@ -257,7 +257,7 @@
               <property name="font">
                <font>
                 <family>DejaVu Sans</family>
-                <pointsize>23</pointsize>
+                <pointsize>20</pointsize>
                 <weight>50</weight>
                 <italic>false</italic>
                 <bold>false</bold>
@@ -265,6 +265,9 @@
               </property>
               <property name="text">
                <string> Enter your name:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
               <property name="buddy">
                <cstring>m_login</cstring>
@@ -307,8 +310,8 @@
               </property>
               <property name="font">
                <font>
-                <family>MS Shell Dlg 2</family>
-                <pointsize>15</pointsize>
+                <family>DejaVu Sans</family>
+                <pointsize>16</pointsize>
                </font>
               </property>
               <property name="cursor">

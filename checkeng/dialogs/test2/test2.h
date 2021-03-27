@@ -5,6 +5,8 @@
 #include <QLabel>
 #include "task2.h"
 
+class QMediaPlayer;
+
 namespace Ui {
     class Test2;
 }
@@ -25,18 +27,23 @@ private:
     void onThirdAnswerClick();
     void answer(QLabel* btn);
     void randomize(QString const& first, QString const& second, QString const& third);
-    bool eventFilter(QObject* watched, QEvent* event);
+    bool eventFilter(QObject* watched, QEvent* event) override final;
+
+private slots:
+    void onPlayClicked() noexcept;
 
 public:
-    explicit Test2Dialog(QString const& file, QString const& name, QWidget* parent = nullptr);
+    explicit Test2Dialog(QString const& dir, QString const& name, QWidget* parent = nullptr);
     ~Test2Dialog() override;
     void start();
 
 private:
     Ui::Test2* ui = nullptr;
-    QString m_filename;
+    QString m_dir;
     QString m_name;
     tasts_t m_tasks;
     int m_index = 0;
     int m_right = 0;
+    int m_cx = -1;
+    QMediaPlayer* m_player;
 };

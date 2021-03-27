@@ -8,6 +8,12 @@
 #include "dialogs/add_tasks/add_tasks.h"
 #include "dialogs/choose/choose.h"
 
+inline void addStyle() noexcept {
+    QFile styleF(QStringLiteral(":/css/style.css"));
+    styleF.open(QFile::ReadOnly);
+    qApp->setStyleSheet(QString::fromStdString(styleF.readAll().toStdString()));
+}
+
 void init()
 {
     QCoreApplication::setOrganizationName("CheckEng");
@@ -32,18 +38,9 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     init();
+   // addStyle();
 
     ChooseDialog dlg;
-    if(dlg.exec() != QDialog::Accepted)
-         return EXIT_SUCCESS;
-
-
-//    LoginDialog dlg;
-//    if(dlg.exec() == QDialog::Accepted) {
-//        MainWindow w;
-//        w.setName(dlg.name());
-//        w.show();
-//        return a.exec();
-//    }
+    dlg.exec();
     return EXIT_SUCCESS;
 }

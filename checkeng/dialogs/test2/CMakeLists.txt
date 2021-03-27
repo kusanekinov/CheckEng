@@ -17,6 +17,7 @@ include_directories(${TEST2_PATH})
 add_definitions(-DTEST2_DIALOG_LIBRARY)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Gui REQUIRED)
+find_package(Qt5Multimedia REQUIRED)
 
 set(HEADER_FILES
     ${TEST2_PATH}/test2.h
@@ -42,5 +43,6 @@ add_library(${LIBRARY_NAME} SHARED
 target_link_libraries(${LIBRARY_NAME}
     Qt5::Widgets
     Qt5::Gui
+    Qt5::Multimedia
     finishdlg
 )

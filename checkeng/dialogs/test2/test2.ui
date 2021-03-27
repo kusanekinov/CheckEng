@@ -32,6 +32,78 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0">
+     <item>
+      <widget class="QFrame" name="frame">
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>3</number>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0">
+        <item>
+         <widget class="QLabel" name="l_file">
+          <property name="font">
+           <font>
+            <family>DejaVu Sans</family>
+            <pointsize>16</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Audio File Name</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="tb_play">
+          <property name="font">
+           <font>
+            <family>DejaVu Sans</family>
+            <pointsize>16</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../../resources/images/svg.qrc">
+            <normaloff>:/svg/play.png</normaloff>:/svg/play.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>70</width>
+            <height>70</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
     <widget class="QLabel" name="l_question">
      <property name="font">
       <font>
@@ -222,7 +294,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../resources/images/svg.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>Test2</sender>
@@ -240,5 +314,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tb_play</sender>
+   <signal>clicked()</signal>
+   <receiver>Test2</receiver>
+   <slot>onPlayClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>922</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>onPlayClicked()</slot>
+ </slots>
 </ui>
