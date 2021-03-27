@@ -67,6 +67,7 @@ void Test1Dialog::nextTask()
     if(m_index >= m_tasks.size()) {
         FinishDialog dlg(m_filename, m_right, m_tasks.size());
         dlg.exec();
+        close();
 
         return;
     }
