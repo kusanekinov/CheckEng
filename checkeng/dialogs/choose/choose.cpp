@@ -81,3 +81,7 @@ void ChooseDialog::loadFiles() noexcept
         lay->addWidget(w);
     }
 }
+void ChooseDialog::onAddNewAudioClicked() noexcept
+{
+
+}
