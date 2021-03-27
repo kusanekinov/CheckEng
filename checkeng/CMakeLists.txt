@@ -25,6 +25,8 @@ set(LIBS
     addtasksdlg
     choosesdlg
     test1dlg
+    test2dlg
+    addtasks2dlg
 )
 
 add_executable(checkeng

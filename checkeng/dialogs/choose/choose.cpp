@@ -10,6 +10,8 @@
 #include "include/context.h"
 #include "dialogs/test1/test1.h"
 #include "login/login.h"
+#include "dialogs/test2/test2.h"
+#include "dialogs/add_tasks2/add_tasks2.h"
 
 ChooseDialog::ChooseDialog(QWidget* parent)
     : QDialog(parent)
@@ -88,5 +90,8 @@ void ChooseDialog::loadFiles() noexcept
 }
 void ChooseDialog::onAddNewAudioClicked() noexcept
 {
+    AddTasks2Dialog dlg;
+    dlg.exec();
 
+    loadFiles();
 }

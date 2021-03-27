@@ -108,5 +108,8 @@ namespace program {
         inline auto test1() noexcept -> QString {
             return HOME_PATH("/test1");
         }
+        inline auto test2() noexcept -> QString {
+            return HOME_PATH("/test2");
+        }
     }
 }

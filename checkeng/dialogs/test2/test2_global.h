@@ -1,0 +1,8 @@
+#pragma once
+
+#if defined(TEST2_DIALOG_LIBRARY)
+    #define TEST2_DIALOG_SHARED_EXPORT Q_DECL_EXPORT
+#else
+    #define TEST2_DIALOG_SHARED_EXPORT Q_DECL_IMPORT
+#endif
+

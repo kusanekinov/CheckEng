@@ -21,6 +21,10 @@ void init()
     QDir dir{program::paths::test1()};
     if(!dir.exists())
         dir.mkpath(program::paths::test1());
+
+    dir.setPath(program::paths::test2());
+    if(!dir.exists())
+        dir.mkpath(program::paths::test2());
 }
 int main(int argc, char *argv[])
 {
