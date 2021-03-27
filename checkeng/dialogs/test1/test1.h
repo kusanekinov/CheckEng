@@ -2,6 +2,7 @@
 #include "test1_pch.h"
 #include "test1_global.h"
 #include <QList>
+#include <QLabel>
 #include "task.h"
 
 namespace Ui {
@@ -22,8 +23,9 @@ private:
     void onFirstAnswerClick();
     void onSecondAnswerClick();
     void onThirdAnswerClick();
-    void answer(QPushButton* btn);
+    void answer(QLabel* btn);
     void randomize(QString const& first, QString const& second, QString const& third);
+    bool eventFilter(QObject* watched, QEvent* event);
 
 public:
     explicit Test1Dialog(QString const& name, QWidget* parent = nullptr);

@@ -85,7 +85,7 @@ void AddTasksDialog::onCancel() noexcept
     QFile file(program::paths::test1() + GT_STR("/") + m_file);
     if(file.exists())
         file.remove();
-    reject();
+    close();
 }
 int AddTasksDialog::writeRightAnswer(QTextStream &out) noexcept
 {

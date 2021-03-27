@@ -14,6 +14,9 @@ Test1Dialog::Test1Dialog(QString const& filename, QWidget *parent)
     , m_filename(filename)
 {
     ui->setupUi(this);
+    ui->l_first->installEventFilter(this);
+    ui->l_second->installEventFilter(this);
+    ui->l_third->installEventFilter(this);
     start();
 }
 Test1Dialog::~Test1Dialog()
@@ -71,7 +74,7 @@ void Test1Dialog::nextTask()
     ui->l_question->setText(task.question());
     randomize(task.answer1(), task.answer2(), task.answer3());
 }
-void Test1Dialog::answer(QPushButton* btn)
+void Test1Dialog::answer(QLabel* btn)
 {
     if(m_index >= m_tasks.size())
         return;
@@ -82,26 +85,27 @@ void Test1Dialog::answer(QPushButton* btn)
     ++m_index;
     nextTask();
 }
-void Test1Dialog::onFirstAnswerClick()
+bool Test1Dialog::eventFilter(QObject* watched, QEvent* event)
 {
-    // answer(ui->pb_first);
-}
-void Test1Dialog::onSecondAnswerClick()
-{
-    // answer(ui->pb_second);
-}
-void Test1Dialog::onThirdAnswerClick()
-{
-   //  answer(ui->pb_third);
+    if(event->type() != QEvent::MouseButtonPress)
+        return false;
+
+    if(watched == ui->l_first)
+        answer(ui->l_first);
+    else if(watched == ui->l_second)
+        answer(ui->l_second);
+    else
+        answer(ui->l_third);
+    return true;
 }
 void Test1Dialog::randomize(QString const& first, QString const& second, QString const& third)
 {
-     /* QVector<QPushButton*> V{ui->pb_first, ui->pb_second, ui->pb_third};
+     QVector<QLabel*> V{ui->l_first, ui->l_second, ui->l_third};
      int x = rand()%3;
      V[x]->setText(first);
      V.remove(x);
      x = rand()%2;
      V[x]->setText(second);
      V.remove(x);
-     V[0]->setText(third); */
+     V[0]->setText(third);
 }
