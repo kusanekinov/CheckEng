@@ -8,10 +8,11 @@
 #include <QDebug>
 #include <QPushButton>
 
-Test1Dialog::Test1Dialog(QString const& filename, QWidget *parent)
+Test1Dialog::Test1Dialog(QString const& filename, QString const& name, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Test1)
     , m_filename(filename)
+    , m_name(name)
 {
     ui->setupUi(this);
     ui->l_first->installEventFilter(this);
@@ -65,7 +66,7 @@ void Test1Dialog::start()
 void Test1Dialog::nextTask()
 {
     if(m_index >= m_tasks.size()) {
-        FinishDialog dlg(m_filename, m_right, m_tasks.size());
+        FinishDialog dlg(m_name, m_right, m_tasks.size());
         dlg.exec();
         close();
 

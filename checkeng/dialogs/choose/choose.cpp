@@ -9,6 +9,7 @@
 #include "dialogs/add_tasks/add_tasks.h"
 #include "include/context.h"
 #include "dialogs/test1/test1.h"
+#include "login/login.h"
 
 ChooseDialog::ChooseDialog(QWidget* parent)
     : QDialog(parent)
@@ -47,7 +48,11 @@ void ChooseDialog::loadFiles() noexcept
         auto btn = new QPushButton(filename);
         btn->setProperty("file", name);
         QObject::connect(btn, &QToolButton::clicked, [name] () {
-            Test1Dialog dlg(name);
+            LoginDialog login;
+            if(login.exec() != LoginDialog::Accepted)
+                return;
+
+            Test1Dialog dlg(name, login.name());
             dlg.exec();
         });
         v->addWidget(btn);
