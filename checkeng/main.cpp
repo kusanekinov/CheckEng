@@ -22,7 +22,7 @@ void init()
     QCoreApplication::setApplicationName("CheckEng");
     QCoreApplication::setApplicationVersion("1.0");
 
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    //QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     QDir dir{program::paths::test1()};

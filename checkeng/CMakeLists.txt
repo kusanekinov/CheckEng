@@ -16,8 +16,41 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools Network REQU
 set(APP_PATH ${CMAKE_CURRENT_LIST_DIR})
 set(RESOURCES_PATH ${APP_PATH}/resources)
 set(TRANSLATIONS_PATH ${APP_PATH})
+set(OUTPUT_PATH ${APP_PATH}/bin)
 
 #set(TS_FILES en.ts)
+
+if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+    add_compile_options(
+        -Werror
+
+        -Wall
+        -Wextra
+        -Wpedantic
+
+        -Wcast-align
+        -Wcast-qual
+        -Wconversion
+        -Wctor-dtor-privacy
+        -Wenum-compare
+        -Wfloat-equal
+        -Wnon-virtual-dtor
+        -Wold-style-cast
+        -Woverloaded-virtual
+        -Wredundant-decls
+        -Wsign-conversion
+        -Wsign-promo
+      #  -Weffc++
+    )
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    #add_compile_options(/W4 /WX)
+    SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_PATH}")
+    SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_PATH}")
+    SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_PATH}")
+    SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_PATH}")
+    SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_PATH}")
+    SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_PATH}")
+endif()
 
 set(RESOURCES
     ${RESOURCES_PATH}/images/svg.qrc
