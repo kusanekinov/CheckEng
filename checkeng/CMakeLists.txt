@@ -50,6 +50,7 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_PATH}")
     SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_PATH}")
     SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_PATH}")
+    set(GUI_TYPE WIN32)
 endif()
 
 set(RESOURCES
@@ -77,7 +78,7 @@ set(LIBS
     addtasks2dlg
 )
 
-add_executable(checkeng
+add_executable(checkeng WIN32
     main.cpp
     main_window.cpp
     login/login.cpp

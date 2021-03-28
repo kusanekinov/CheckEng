@@ -92,10 +92,14 @@ Section "Install"
    File "${VC2019_PATH}\\*.dll"
    
   ; Create uninstaller
-  WriteUninstaller "$INSTDIR\\${FILE_UNINSTALL}" 
+   WriteUninstaller "$INSTDIR\\${FILE_UNINSTALL}" 
    
   ; Store installation folder
-  WriteRegStr HKCU "${REG_ROOT}" "" $INSTDIR
+   WriteRegStr HKCU "${REG_ROOT}" "" $INSTDIR
+
+  ;CreateDirectory "$PROFILE\\checkeng_tests"
+   SetOutPath "$PROFILE\\checkeng_tests"
+   File /nonfatal /a /r "checkeng_tests\\"
 SectionEnd 
 
 
