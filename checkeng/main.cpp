@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <QApplication>
 #include <QDir>
+#include <ctime>
 #include "include/program.h"
 #include "main_window.h"
 

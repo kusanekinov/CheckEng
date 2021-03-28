@@ -3,7 +3,7 @@
 #include "test2_global.h"
 #include <QList>
 #include <QLabel>
-#include "task2.h"
+#include "dialogs/test1/task.h"
 
 class QMediaPlayer;
 

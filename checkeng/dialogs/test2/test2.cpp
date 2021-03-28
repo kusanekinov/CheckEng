@@ -1,6 +1,6 @@
 #include "test2.h"
 #include "ui_test2.h"
-#include "task2.h"
+#include "dialogs/test1/task.h"
 #include "dialogs/finish/finish.h"
 
 #include <QFile>

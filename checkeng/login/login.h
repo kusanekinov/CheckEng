@@ -1,7 +1,8 @@
 #pragma once
 #include <QDialog>
+#include "include/typedefs.h"
 
-namespace Ui { class LoginDialog; }
+GT_UI(LoginDialog)
 
 class LoginDialog: public QDialog {
     Q_OBJECT

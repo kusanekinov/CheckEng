@@ -25,6 +25,7 @@ set(HEADER_FILES
 )
 set(SOURCE_FILES
     ${CHOOSE_PATH}/choose.cpp    
+    ${APP_PATH}/login/login.cpp
 )
 set(FORMS
     ${CHOOSE_PATH}/choose.ui
@@ -43,5 +44,7 @@ target_link_libraries(${LIBRARY_NAME}
     Qt5::Widgets
     Qt5::Gui
     addtasksdlg
+    addtasks2dlg
     test1dlg
+    test2dlg
 )
