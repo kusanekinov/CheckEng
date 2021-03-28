@@ -10,5 +10,6 @@ Checker English
 * Build
 * run in bin folder
     windeploy --multimedia checkeng.exe
+* copy plugins folder
 * run in install folder
     makensis install.nsi

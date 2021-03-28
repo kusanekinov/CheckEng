@@ -85,6 +85,7 @@ void Test2Dialog::nextTask()
     ui->l_question->setText(task.question());
     randomize(task.answer1(), task.answer2(), task.answer3());
     m_cx++;
+    ui->l_file->setText(QStringLiteral("%1.mp3").arg(m_cx));
 }
 void Test2Dialog::answer(QLabel* btn)
 {

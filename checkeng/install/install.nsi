@@ -7,7 +7,7 @@
 ;Defines
   !define VERSION_MAJOR 1
   !define VERSION_MINOR 0
-  !define VERSION_PATCH 0 
+  !define VERSION_PATCH 1 
   !define VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
   !define PROJECT "CheckEng"
   !define FULL_PROJECT "${PROJECT}"
@@ -81,6 +81,9 @@ Section "Install"
    
    SetOutPath "$INSTDIR\\imageformats"
    File "${FILES_PATH}imageformats\\*.dll"
+
+   SetOutPath "$INSTDIR\\plugins"
+   File /r "${FILES_PATH}plugins\\*.dll"
 
    ;SetOutPath "$INSTDIR\\langs"
    ;File "${FILES_PATH}langs\\*.qm"
