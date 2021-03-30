@@ -1,10 +1,10 @@
 # CheckEng
-Checker English
-
+Checker English program
 
 #Dependecies
 * Qt 5.15
 * nsis
+* cmake 3.16
 
 #How to create
 * cd checkeng folder
