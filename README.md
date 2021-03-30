@@ -14,5 +14,5 @@ Checker English program
 * cmake --build . --config Release
 * cd ../bin
 * windeployqt --multimedia --plugindir plugins checkeng.exe
-* run in install folder
+* cd ../install
 * makensis install.nsi
