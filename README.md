@@ -7,9 +7,10 @@ Checker English
 * nsis
 
 #How to create
-* Build
+* cd checkeng folder
+* mkdir build && cd build
 * run in bin folder
-    windeploy --multimedia checkeng.exe
+    windeploy --multimedia --plugins checkeng.exe
 * copy plugins folder
 * run in install folder
     makensis install.nsi

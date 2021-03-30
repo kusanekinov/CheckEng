@@ -17,6 +17,7 @@ ChooseDialog::ChooseDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::Choose)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     loadFiles();
 }

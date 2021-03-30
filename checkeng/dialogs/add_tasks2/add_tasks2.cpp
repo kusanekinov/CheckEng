@@ -10,6 +10,7 @@ AddTasks2Dialog::AddTasks2Dialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AddTasks2)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     m_dir = QUuid::createUuid().toString();
     QDir().mkpath(dirName());

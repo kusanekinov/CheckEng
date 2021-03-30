@@ -17,6 +17,7 @@ Test2Dialog::Test2Dialog(QString const& dir, QString const& name, QWidget *paren
     , m_name(name)
     , m_player(new QMediaPlayer)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     ui->l_first->installEventFilter(this);
     ui->l_second->installEventFilter(this);

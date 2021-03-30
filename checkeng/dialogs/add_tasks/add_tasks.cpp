@@ -10,6 +10,7 @@ AddTasksDialog::AddTasksDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::AddTasks)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     m_file = QUuid::createUuid().toString();
     load();

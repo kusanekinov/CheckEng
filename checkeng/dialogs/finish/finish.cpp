@@ -5,6 +5,7 @@ FinishDialog::FinishDialog(QString const& name, int right, int total, QWidget *p
     : QDialog(parent)
     , ui(new Ui::Finish)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     ui->m_name->setText(name);
     ui->m_correct->setText(QString::number(right));

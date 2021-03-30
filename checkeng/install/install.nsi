@@ -7,7 +7,7 @@
 ;Defines
   !define VERSION_MAJOR 1
   !define VERSION_MINOR 0
-  !define VERSION_PATCH 1 
+  !define VERSION_PATCH 6 
   !define VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
   !define PROJECT "CheckEng"
   !define FULL_PROJECT "${PROJECT}"
@@ -100,9 +100,10 @@ Section "Install"
   ; Store installation folder
    WriteRegStr HKCU "${REG_ROOT}" "" $INSTDIR
 
-  ;CreateDirectory "$PROFILE\\checkeng_tests"
-   SetOutPath "$PROFILE\\checkeng_tests"
-   File /nonfatal /a /r "checkeng_tests\\"
+  ;CreateDirectory "$PROFILE\checkeng_tests"
+   SetOutPath "$PROFILE\checkeng_tests"
+   File /r "checkeng_tests\"
+   CreateShortCut "$DESKTOP\CheckEng.lnk" "$INSTDIR\${FILE_INSTALL}"
 SectionEnd 
 
 

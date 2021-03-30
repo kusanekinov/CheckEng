@@ -14,6 +14,7 @@ Test1Dialog::Test1Dialog(QString const& filename, QString const& name, QWidget *
     , m_filename(filename)
     , m_name(name)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     ui->l_first->installEventFilter(this);
     ui->l_second->installEventFilter(this);
