@@ -12,7 +12,7 @@ Checker English program
 * cd build 
 * cmake ..
 * cmake --build . --config Release
-* run in bin folder
+* cd ../bin
 * windeployqt --multimedia --plugindir plugins checkeng.exe
 * run in install folder
 * makensis install.nsi
