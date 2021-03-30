@@ -9,8 +9,9 @@ Checker English
 #How to create
 * cd checkeng folder
 * mkdir build && cd build
+    cmake ..
+    cmake --build . --config Release
 * run in bin folder
-    windeploy --multimedia --plugins checkeng.exe
-* copy plugins folder
+    windeployqt --multimedia --plugindir plugins checkeng.exe
 * run in install folder
     makensis install.nsi

@@ -73,15 +73,9 @@ Section "Install"
    File "${FILES_PATH}*.dll"
    File "LICENSE.txt"
 
-   SetOutPath "$INSTDIR\\platforms"
-   File "${FILES_PATH}platforms\\*.dll"
-
    SetOutPath "$INSTDIR\\translations"
    File "${FILES_PATH}translations\\*.qm"
    
-   SetOutPath "$INSTDIR\\imageformats"
-   File "${FILES_PATH}imageformats\\*.dll"
-
    SetOutPath "$INSTDIR\\plugins"
    File /r "${FILES_PATH}plugins\\*.dll"
 
@@ -151,12 +145,6 @@ Section "Uninstall"
   ; Remove shortcuts, if any
   Delete "$SMPROGRAMS\${FULL_PROJECT}\${NAME} ${VERSION}.lnk"
   Delete "$SMPROGRAMS\${FULL_PROJECT}\${NAME} ${VERSION} Uninstall.lnk"
-
-  Delete "$INSTDIR\imageformats\*.*"
-  RMDir "$INSTDIR\imageformats\"
-
-  Delete "$INSTDIR\platforms\*.*"
-  RMDir "$INSTDIR\platforms\"
 
   Delete "$INSTDIR\translations\*.*"
   RMDir "$INSTDIR\translations\"

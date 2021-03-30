@@ -7,6 +7,7 @@ LoginDialog::LoginDialog(QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::LoginDialog)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
 }
 void LoginDialog::onAccepted() noexcept
