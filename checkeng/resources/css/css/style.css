@@ -14,7 +14,18 @@
     lightgray:                #808da0
                               #2c3e50
 */
-
+QLabel{
+    color: white;
+}
+#l_first{
+color: black;
+}
+#l_second{
+color: black;
+}
+#l_third{
+color: black;
+}
 
 /* Find Recorders QDialog */
 * {

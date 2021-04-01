@@ -1,0 +1,9 @@
+cd checkeng
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Release
+cd ../bin
+windeployqt --multimedia --plugindir plugins checkeng.exe
+cd ../install
+makensis install.nsi

@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     init();
-   // addStyle();
+    addStyle();
 
     ChooseDialog dlg;
     dlg.exec();
