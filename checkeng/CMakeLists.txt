@@ -85,7 +85,6 @@ add_executable(checkeng WIN32
 
     main_window.ui
     ${MOC_RESOURCES}
-    ${RESOURCES_PATH}/a.rc
     ${TS_FILES}
 )
 

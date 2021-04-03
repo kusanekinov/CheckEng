@@ -99,7 +99,7 @@
        <property name="font">
         <font>
          <family>DejaVu Sans</family>
-         <pointsize>16</pointsize>
+         <pointsize>25</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>

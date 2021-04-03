@@ -343,19 +343,6 @@
          </layout>
         </widget>
        </item>
-       <item>
-        <widget class="QLabel" name="m_info">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
       </layout>
      </item>
      <item>
