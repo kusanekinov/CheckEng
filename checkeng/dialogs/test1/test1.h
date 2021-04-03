@@ -4,6 +4,7 @@
 #include <QList>
 #include <QLabel>
 #include "task.h"
+#include "include/answer.h"
 
 namespace Ui {
     class Test1;
@@ -39,4 +40,5 @@ private:
     tasts_t m_tasks;
     int m_index = 0;
     int m_right = 0;
+    QVector<Answer> m_answers;
 };

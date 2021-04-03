@@ -4,6 +4,7 @@
 #include <QList>
 #include <QLabel>
 #include "dialogs/test1/task.h"
+#include "include/answer.h"
 
 class QMediaPlayer;
 
@@ -45,5 +46,6 @@ private:
     int m_index = 0;
     int m_right = 0;
     int m_cx = -1;
+    QVector<Answer> m_answers;
     QMediaPlayer* m_player;
 };

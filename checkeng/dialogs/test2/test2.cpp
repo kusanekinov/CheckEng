@@ -2,6 +2,7 @@
 #include "ui_test2.h"
 #include "dialogs/test1/task.h"
 #include "dialogs/finish/finish.h"
+#include "include/answer.h"
 
 #include <QFile>
 #include <QList>
@@ -37,7 +38,6 @@ void Test2Dialog::start()
         return;
 
     QString q, a1, a2, a3;
-    bool newtask = true;
     int cx = 0;
 
     while(!file.atEnd()) {
@@ -46,7 +46,6 @@ void Test2Dialog::start()
             continue;
 
         if(str[0] != char('-')){
-            newtask = true;
             q = str;
             cx = 0;
         }
@@ -66,6 +65,7 @@ void Test2Dialog::start()
 
     m_index = 0;
     m_right = 0;
+    m_answers.clear();
 
     nextTask();
 }
@@ -76,7 +76,7 @@ void Test2Dialog::nextTask()
     ui->tb_play->setProperty("isPlay", false);
 
     if(m_index >= m_tasks.size()) {
-        FinishDialog dlg(m_name, m_right, m_tasks.size());
+        FinishDialog dlg(m_name, m_right, m_tasks.size(), m_answers);
         dlg.exec();
         close();
 
@@ -85,6 +85,7 @@ void Test2Dialog::nextTask()
     auto task = m_tasks[m_index];
     ui->l_question->setText(task.question());
     randomize(task.answer1(), task.answer2(), task.answer3());
+    m_answers.push_back(Answer(task.question(), task.answer1(), task.answer1()));
     m_cx++;
     ui->l_file->setText(QStringLiteral("%1.mp3").arg(m_cx));
 }
@@ -97,6 +98,7 @@ void Test2Dialog::answer(QLabel* btn)
     if(task.answer1() == btn->text())
         ++m_right;
     ++m_index;
+    m_answers.back().setAnswer(btn->text());
     nextTask();
 }
 bool Test2Dialog::eventFilter(QObject* watched, QEvent* event)

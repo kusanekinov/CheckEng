@@ -6,6 +6,7 @@ QObject QLineEdit{
 color:white;
 font-size: 16px;
 }
+#answers1{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #w_tasks{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #your{color:white;}
 #result{color:white;}
