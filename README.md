@@ -8,10 +8,11 @@ Checker English program
 
 #How to create
 * cd checkeng folder
-* mkdir build && cd build
-    cmake ..
-    cmake --build . --config Release
-* run in bin folder
-    windeployqt --multimedia --plugindir plugins checkeng.exe
-* run in install folder
-    makensis install.nsi
+* mkdir build 
+* cd build 
+* cmake ..
+* cmake --build . --config Release
+* cd ../bin
+* windeployqt --multimedia --plugindir plugins checkeng.exe
+* cd ../install
+* makensis install.nsi
