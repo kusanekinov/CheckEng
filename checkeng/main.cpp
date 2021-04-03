@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     init();
     addStyle();
 
-    ChooseDialog dlg;
-    dlg.exec();
-    return EXIT_SUCCESS;
+    MainWindow w;
+    w.show();
+    return a.exec();
 }
