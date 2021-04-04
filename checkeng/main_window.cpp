@@ -18,6 +18,8 @@
 #include "login/login.h"
 #include "dialogs/test2/test2.h"
 #include "dialogs/add_tasks2/add_tasks2.h"
+#include "include/language.h"
+#include "include/tr.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -39,8 +41,11 @@ void MainWindow::onAboutClick()
 }
 void MainWindow::onLanguageClick()
 {
-   LanguageDialog ldlg;
-   ldlg.exec();
+    LanguageDialog dlg(gt::options::Language::current().toUint());
+    if(dlg.exec() == LanguageDialog::Accepted) {
+        gt::options::Language::setCurrent(dlg.current());
+        QMessageBox::information(this, iMsg::tr("Information"), iMsg::tr("Language will be changed after the next login!"), QMessageBox::Ok);
+    }
 }
 void MainWindow::setName(QString const& name) noexcept
 {
@@ -91,7 +96,7 @@ void MainWindow::loadTasks1(QVBoxLayout* lay) noexcept
         auto const& name = it.next();
         auto const& filename = QFileInfo(name).fileName()[0] != QChar('{')
             ? QFileInfo(name).fileName()
-            : GT_STR("Text Task %1").arg(cx++);
+            : iMsg::tr("Text Task %1").arg(cx++);
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
@@ -106,12 +111,12 @@ void MainWindow::loadTasks1(QVBoxLayout* lay) noexcept
         v->addWidget(btn);
 
         auto btn1 = new QToolButton();
-        btn1->setText(GT_STR("Edit"));
+        btn1->setText(iMsg::tr("Edit"));
         QObject::connect(btn1, &QToolButton::clicked, [cx, name, this] () {
             bool ok;
             auto const& text = QInputDialog::getText(nullptr, program::productName(),
-                                                      tr("Enter a new name:"), QLineEdit::Normal,
-                                                      GT_STR("Text Task %1").arg(cx), &ok);
+                                                      iMsg::tr("Enter a new name:"), QLineEdit::Normal,
+                                                      iMsg::tr("Text Task %1").arg(cx), &ok);
 
             if (ok && !text.isEmpty()) {
                 QFile::rename(name, GT_STR("%1/%2").arg(QFileInfo(name).absolutePath()).arg(text));
@@ -121,10 +126,10 @@ void MainWindow::loadTasks1(QVBoxLayout* lay) noexcept
         v->addWidget(btn1);
 
         auto btn2 = new QToolButton();
-        btn2->setText(GT_STR("Delete"));
+        btn2->setText(iMsg::tr("Delete"));
         QObject::connect(btn2, &QToolButton::clicked, [name, this] () {
             int ret = QMessageBox::information(nullptr, program::productName(),
-                                           tr("Do you really want to delete test?"),
+                                           iMsg::tr("Do you really want to delete test?"),
                                             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
             if (ret == QMessageBox::Yes) {
                 QFile::remove(name);
@@ -144,7 +149,7 @@ void MainWindow::loadTasks2(QVBoxLayout* lay) noexcept
         auto const& name = it.next();
         auto const& filename = QFileInfo(name).fileName()[0] != QChar('{')
             ? QFileInfo(name).fileName()
-            : GT_STR("Audio Task %1").arg(cx++);
+            : iMsg::tr("Audio Task %1").arg(cx++);
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
@@ -159,12 +164,12 @@ void MainWindow::loadTasks2(QVBoxLayout* lay) noexcept
         v->addWidget(btn);
 
         auto btn1 = new QToolButton();
-        btn1->setText(GT_STR("Edit"));
+        btn1->setText(iMsg::tr("Edit"));
         QObject::connect(btn1, &QToolButton::clicked, [cx, name, this] () {
             bool ok;
             auto const& text = QInputDialog::getText(nullptr, program::productName(),
-                                                      tr("Enter a new name:"), QLineEdit::Normal,
-                                                      GT_STR("Audio Task %1").arg(cx), &ok);
+                                                      iMsg::tr("Enter a new name:"), QLineEdit::Normal,
+                                                      iMsg::tr("Audio Task %1").arg(cx), &ok);
             if (ok && !text.isEmpty()) {
                 QDir().rename(name, GT_STR("%1/%2").arg(QFileInfo(name).absolutePath()).arg(text));
                 this->loadFiles();
@@ -173,10 +178,10 @@ void MainWindow::loadTasks2(QVBoxLayout* lay) noexcept
         v->addWidget(btn1);
 
         auto btn2 = new QToolButton();
-        btn2->setText(GT_STR("Delete"));
+        btn2->setText(iMsg::tr("Delete"));
         QObject::connect(btn2, &QToolButton::clicked, [name, this] () {
             int ret = QMessageBox::information(nullptr, program::productName(),
-                                           tr("Do you really want to delete test?"),
+                                           iMsg::tr("Do you really want to delete test?"),
                                             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
             if (ret == QMessageBox::Yes) {
                 QDir(name).removeRecursively();

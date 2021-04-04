@@ -15,9 +15,9 @@ public:
     using inherited  = QDialog;
 
 public:
-    explicit LanguageDialog(QWidget* parent = nullptr);
+    explicit LanguageDialog(uint current, QWidget* parent = nullptr);
     ~LanguageDialog() override;
-    // uint current() const;
+    uint current() const;
 
 private slots:
     void onChangeClicked();
