@@ -43,7 +43,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pn_audio">
+       <widget class="QPushButton" name="pb_audio">
         <property name="font">
          <font>
           <pointsize>16</pointsize>
@@ -116,15 +116,16 @@
      <x>0</x>
      <y>0</y>
      <width>960</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="a_start"/>
     <addaction name="action_About"/>
+    <addaction name="separator"/>
+    <addaction name="action_change_language"/>
    </widget>
    <addaction name="menuAbout"/>
   </widget>
@@ -140,6 +141,11 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_change_language">
+   <property name="text">
+    <string>&amp;Сhange Language</string>
    </property>
   </action>
  </widget>
@@ -194,7 +200,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pn_audio</sender>
+   <sender>pb_audio</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>onAddNewAudioClicked()</slot>
@@ -209,11 +215,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_change_language</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onLanguageClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onAboutClick()</slot>
   <slot>onStart()</slot>
   <slot>onAddNewTasksClicked()</slot>
   <slot>onAddNewAudioClicked()</slot>
+  <slot>onLanguageClick()</slot>
  </slots>
 </ui>

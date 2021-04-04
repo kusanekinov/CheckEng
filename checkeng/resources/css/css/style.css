@@ -6,6 +6,12 @@ QObject QLineEdit{
 color:white;
 font-size: 16px;
 }
+MainWindow{background-color: #293141;}
+#l_first{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
+#l_second{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
+#l_third{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
+#pb_answer{font-size: 25px;border: 2px solid #C3BFD8; height: 60px; width: 300px;}
+#aboutC{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #answers1{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #w_tasks{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #your{color:white;}
@@ -14,17 +20,17 @@ font-size: 16px;
 #answers{color:white;}
 #l_tasks{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #l_question{color:white;}
-#l_correct{color:white;background-color: #5b6881;border-radius: 10px;}
-#l_incorrect{color:white;background-color: #5b6881;border-radius: 10px;}
-#l_name{color:white;background-color: #5b6881;border-radius: 10px;}
-#l_result{color:white;background-color: #5b6881;border-radius: 10px;}
-#l_total{color:white;background-color: #5b6881;border-radius: 10px;}
-#l_percent{color:white;background-color: #5b6881;border-radius: 10px;}
-#m_correct{color:white;background-color: #5b6881;border-radius: 10px;}
-#m_incorrect{color:white;background-color: #5b6881;border-radius: 10px;}
-#m_name{color:white;background-color: #5b6881;border-radius: 10px;}
-#m_total{color:white;background-color: #5b6881;border-radius: 10px;}
-#m_percent{color:white;background-color: #5b6881;border-radius: 10px;}
+#l_correct{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#l_incorrect{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#l_name{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#l_result{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#l_total{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#l_percent{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#m_correct{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#m_incorrect{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#m_name{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#m_total{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
+#m_percent{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
 #l_task{color:white;}
 #pb_new{font-size: 20px;border: 2px solid #C3BFD8;border-radius: 5px;}
 #pb_audio{font-size: 20px;border: 2px solid #C3BFD8;border-radius: 5px;}
@@ -39,9 +45,6 @@ font-size: 16px;
 #le_answer3{color:white;}
 #m_login{color:white;}
 #le_audio{color:white;}
-#l_first{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
-#l_second{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
-#l_third{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
 #l_file{color:white;}
 #tb_play{ width:65px; height:65px; border: 2px solid #E1DFF1;}
 

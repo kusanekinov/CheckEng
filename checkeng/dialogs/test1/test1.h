@@ -28,6 +28,9 @@ private:
     void randomize(QString const& first, QString const& second, QString const& third);
     bool eventFilter(QObject* watched, QEvent* event);
 
+private slots:
+        void onAnswerClicked();
+
 public:
     explicit Test1Dialog(QString const& file, QString const& name, QWidget* parent = nullptr);
     ~Test1Dialog() override;
@@ -40,5 +43,6 @@ private:
     tasts_t m_tasks;
     int m_index = 0;
     int m_right = 0;
+    int num = 0;
     QVector<Answer> m_answers;
 };

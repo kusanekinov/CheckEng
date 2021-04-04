@@ -18,7 +18,7 @@ namespace program {
         return GT_STR("checkeng.exe");
     }
     inline QString name() noexcept {
-        return GT_STR("CHeckEng");
+        return GT_STR("CheckEng");
     }
     inline QString regName() noexcept {
         return GT_STR("CheckEng");

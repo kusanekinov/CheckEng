@@ -74,8 +74,33 @@ void Test1Dialog::nextTask()
     }
     auto task = m_tasks[m_index];
     ui->l_question->setText(task.question());
+    QString allQ = QString::number(m_tasks.size());
+    ui->l_all->setText(allQ);
     randomize(task.answer1(), task.answer2(), task.answer3());
+    QString leftQ = QString::number(m_tasks.size() - m_index);
+    ui->l_left->setText(leftQ);
     m_answers.push_back(Answer(task.question(), task.answer1(), task.answer1()));
+}
+void Test1Dialog::onAnswerClicked()
+{
+    switch (num)
+    {
+    case 1: {
+        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+        answer(ui->l_first);
+        break;
+        }
+    case 2: {
+        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+        answer(ui->l_second);
+        break;
+        }
+    case 3: {
+        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+        answer(ui->l_third);
+        break;
+        }
+    }
 }
 void Test1Dialog::answer(QLabel* btn)
 {
@@ -94,12 +119,24 @@ bool Test1Dialog::eventFilter(QObject* watched, QEvent* event)
     if(event->type() != QEvent::MouseButtonPress)
         return false;
 
-    if(watched == ui->l_first)
-        answer(ui->l_first);
-    else if(watched == ui->l_second)
-        answer(ui->l_second);
-    else
-        answer(ui->l_third);
+    if(watched == ui->l_first){
+        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_first->setStyleSheet("QLabel { background-color : #4478B7; }");
+        num = 1;
+    }
+    else if(watched == ui->l_second){
+        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_second->setStyleSheet("QLabel { background-color : #4478B7; }");
+        num = 2;
+    }
+    else {
+        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_third->setStyleSheet("QLabel { background-color : #4478B7; }");
+        num = 3;
+    }
     return true;
 }
 void Test1Dialog::randomize(QString const& first, QString const& second, QString const& third)

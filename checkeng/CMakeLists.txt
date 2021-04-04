@@ -69,6 +69,7 @@ qt5_add_resources(MOC_RESOURCES
 add_subdirectory(dialogs)
 
 set(LIBS
+    languagedlg
     aboutdlg
     finishdlg
     addtasksdlg
@@ -85,7 +86,6 @@ add_executable(checkeng WIN32
 
     main_window.ui
     ${MOC_RESOURCES}
-    ${RESOURCES_PATH}/a.rc
     ${TS_FILES}
 )
 

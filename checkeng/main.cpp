@@ -35,10 +35,11 @@ void init()
 }
 int main(int argc, char *argv[])
 {
+    std::srand(std::time(NULL));
 
     QApplication a(argc, argv);
     init();
-    addStyle();
+    //addStyle();
 
     MainWindow w;
     w.show();

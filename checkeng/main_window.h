@@ -17,6 +17,7 @@ class MainWindow: public QMainWindow {
 
  private slots:
     void onAboutClick();
+    void onLanguageClick();
     void onStart();
     void save() noexcept;
     void load() noexcept;

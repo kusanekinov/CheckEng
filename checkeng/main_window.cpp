@@ -5,6 +5,7 @@
 #include "main_window.h"
 #include "ui_main_window.h"
 #include "dialogs/about/about.h"
+#include "dialogs/language/language.h"
 #include <QDirIterator>
 #include <QDebug>
 #include <QToolButton>
@@ -35,6 +36,11 @@ void MainWindow::onAboutClick()
 {
    AboutDialog dlg;
    dlg.exec();
+}
+void MainWindow::onLanguageClick()
+{
+   LanguageDialog ldlg;
+   ldlg.exec();
 }
 void MainWindow::setName(QString const& name) noexcept
 {

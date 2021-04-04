@@ -27,7 +27,12 @@ void FinishDialog::printAnswers(QVector<Answer> const& answers) noexcept
         auto l = new QGridLayout(w);
         auto q = new QLabel(i.question(), this);
         auto r = new QLabel(tr("Right Answer: ") + i.right(), this);
+        r->setStyleSheet("QLabel { background-color: rgb(195, 255, 192); color: black;border-radius: 5px; margin-left: 6px; min-height: 27px; }");
         auto a = new QLabel(tr("Your Answer: ") + i.answer(), this);
+        if(i.right() == i.answer())
+            a->setStyleSheet("QLabel { background-color: rgb(195, 255, 192);color: black;border-radius: 5px; margin-left: 6px; min-height: 27px; }");
+        else
+            a->setStyleSheet("QLabel { background-color: rgb(255, 181, 191);color: black;border-radius: 5px; margin-left: 6px;  min-height: 27px; }");
         l->addWidget(q, cx, 0);
         l->addWidget(r, cx++, 1);
         l->addWidget(a, cx++, 1);
