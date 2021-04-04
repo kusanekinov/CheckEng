@@ -8,23 +8,15 @@
 #include "login/login.h"
 #include "dialogs/add_tasks/add_tasks.h"
 #include "dialogs/choose/choose.h"
+#include "include/app.h"
 
 inline void addStyle() noexcept {
     QFile styleF(QStringLiteral(":/css/style.css"));
     styleF.open(QFile::ReadOnly);
     qApp->setStyleSheet(QString::fromStdString(styleF.readAll().toStdString()));
 }
-
 void init()
 {
-    QCoreApplication::setOrganizationName("CheckEng");
-    QCoreApplication::setOrganizationDomain("checkeng.org");
-    QCoreApplication::setApplicationName("CheckEng");
-    QCoreApplication::setApplicationVersion("1.0");
-
-    //QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-
     QDir dir{program::paths::test1()};
     if(!dir.exists())
         dir.mkpath(program::paths::test1());
@@ -35,13 +27,12 @@ void init()
 }
 int main(int argc, char *argv[])
 {
-    std::srand(std::time(nullptr));
 
-    QApplication a(argc, argv);
+    App a(argc, argv);
     init();
     addStyle();
 
-    ChooseDialog dlg;
-    dlg.exec();
-    return EXIT_SUCCESS;
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

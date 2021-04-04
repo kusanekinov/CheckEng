@@ -16,3 +16,9 @@ Checker English program
 * windeployqt --multimedia --plugindir plugins checkeng.exe
 * cd ../install
 * makensis install.nsi
+
+#How to translate
+* cd checkeng folder
+* lupdate -recursive . -ts resources/langs/ru.ts
+* open translate
+

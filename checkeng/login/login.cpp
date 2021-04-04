@@ -12,7 +12,6 @@ LoginDialog::LoginDialog(QWidget* parent)
 }
 void LoginDialog::onAccepted() noexcept
 {
-    ui->m_info->setText({});
     if(onChanged())
         return;
 

@@ -4,6 +4,7 @@
 #include <QList>
 #include <QLabel>
 #include "dialogs/test1/task.h"
+#include "include/answer.h"
 
 class QMediaPlayer;
 
@@ -31,6 +32,7 @@ private:
 
 private slots:
     void onPlayClicked() noexcept;
+    void onAnswerClicked();
 
 public:
     explicit Test2Dialog(QString const& dir, QString const& name, QWidget* parent = nullptr);
@@ -45,5 +47,7 @@ private:
     int m_index = 0;
     int m_right = 0;
     int m_cx = -1;
+    int num = 0;
+    QVector<Answer> m_answers;
     QMediaPlayer* m_player;
 };

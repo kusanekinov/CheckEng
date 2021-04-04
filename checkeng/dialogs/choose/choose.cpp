@@ -66,9 +66,10 @@ void ChooseDialog::loadTasks1(QVBoxLayout* lay) noexcept
         btn1->setText(GT_STR("Edit"));
         QObject::connect(btn1, &QToolButton::clicked, [cx, name, this] () {
             bool ok;
-            auto const& text = QInputDialog::getText(nullptr, program::fullProductName(),
+            auto const& text = QInputDialog::getText(nullptr, program::productName(),
                                                       tr("Enter a new name:"), QLineEdit::Normal,
                                                       GT_STR("Text Task %1").arg(cx), &ok);
+
             if (ok && !text.isEmpty()) {
                 QFile::rename(name, GT_STR("%1/%2").arg(QFileInfo(name).absolutePath()).arg(text));
                 this->loadFiles();
@@ -79,7 +80,7 @@ void ChooseDialog::loadTasks1(QVBoxLayout* lay) noexcept
         auto btn2 = new QToolButton();
         btn2->setText(GT_STR("Delete"));
         QObject::connect(btn2, &QToolButton::clicked, [name, this] () {
-            int ret = QMessageBox::information(nullptr, program::fullProductName(),
+            int ret = QMessageBox::information(nullptr, program::productName(),
                                            tr("Do you really want to delete test?"),
                                             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
             if (ret == QMessageBox::Yes) {
@@ -118,7 +119,7 @@ void ChooseDialog::loadTasks2(QVBoxLayout* lay) noexcept
         btn1->setText(GT_STR("Edit"));
         QObject::connect(btn1, &QToolButton::clicked, [cx, name, this] () {
             bool ok;
-            auto const& text = QInputDialog::getText(nullptr, program::fullProductName(),
+            auto const& text = QInputDialog::getText(nullptr, program::productName(),
                                                       tr("Enter a new name:"), QLineEdit::Normal,
                                                       GT_STR("Audio Task %1").arg(cx), &ok);
             if (ok && !text.isEmpty()) {
@@ -131,7 +132,7 @@ void ChooseDialog::loadTasks2(QVBoxLayout* lay) noexcept
         auto btn2 = new QToolButton();
         btn2->setText(GT_STR("Delete"));
         QObject::connect(btn2, &QToolButton::clicked, [name, this] () {
-            int ret = QMessageBox::information(nullptr, program::fullProductName(),
+            int ret = QMessageBox::information(nullptr, program::productName(),
                                            tr("Do you really want to delete test?"),
                                             QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
             if (ret == QMessageBox::Yes) {

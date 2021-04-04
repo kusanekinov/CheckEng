@@ -2,6 +2,7 @@
 #include "ui_test2.h"
 #include "dialogs/test1/task.h"
 #include "dialogs/finish/finish.h"
+#include "include/answer.h"
 
 #include <QFile>
 #include <QList>
@@ -37,7 +38,6 @@ void Test2Dialog::start()
         return;
 
     QString q, a1, a2, a3;
-    bool newtask = true;
     int cx = 0;
 
     while(!file.atEnd()) {
@@ -46,7 +46,6 @@ void Test2Dialog::start()
             continue;
 
         if(str[0] != char('-')){
-            newtask = true;
             q = str;
             cx = 0;
         }
@@ -66,6 +65,7 @@ void Test2Dialog::start()
 
     m_index = 0;
     m_right = 0;
+    m_answers.clear();
 
     nextTask();
 }
@@ -76,7 +76,7 @@ void Test2Dialog::nextTask()
     ui->tb_play->setProperty("isPlay", false);
 
     if(m_index >= m_tasks.size()) {
-        FinishDialog dlg(m_name, m_right, m_tasks.size());
+        FinishDialog dlg(m_name, m_right, m_tasks.size(), m_answers);
         dlg.exec();
         close();
 
@@ -84,9 +84,35 @@ void Test2Dialog::nextTask()
     }
     auto task = m_tasks[m_index];
     ui->l_question->setText(task.question());
+    QString allQ = QString::number(m_tasks.size());
+    ui->l_all->setText(allQ);
     randomize(task.answer1(), task.answer2(), task.answer3());
+    QString leftQ = QString::number(m_tasks.size() - m_index);
+    ui->l_left->setText(leftQ);
+    m_answers.push_back(Answer(task.question(), task.answer1(), task.answer1()));
     m_cx++;
     ui->l_file->setText(QStringLiteral("%1.mp3").arg(m_cx));
+}
+void Test2Dialog::onAnswerClicked()
+{
+    switch (num)
+    {
+    case 1: {
+        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+        answer(ui->l_first);
+        break;
+        }
+    case 2: {
+        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+        answer(ui->l_second);
+        break;
+        }
+    case 3: {
+        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+        answer(ui->l_third);
+        break;
+        }
+    }
 }
 void Test2Dialog::answer(QLabel* btn)
 {
@@ -97,6 +123,7 @@ void Test2Dialog::answer(QLabel* btn)
     if(task.answer1() == btn->text())
         ++m_right;
     ++m_index;
+    m_answers.back().setAnswer(btn->text());
     nextTask();
 }
 bool Test2Dialog::eventFilter(QObject* watched, QEvent* event)
@@ -104,12 +131,24 @@ bool Test2Dialog::eventFilter(QObject* watched, QEvent* event)
     if(event->type() != QEvent::MouseButtonPress)
         return false;
 
-    if(watched == ui->l_first)
-        answer(ui->l_first);
-    else if(watched == ui->l_second)
-        answer(ui->l_second);
-    else
-        answer(ui->l_third);
+    if(watched == ui->l_first){
+        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_first->setStyleSheet("QLabel { background-color : #4478B7; }");
+        num = 1;
+    }
+    else if(watched == ui->l_second){
+        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_second->setStyleSheet("QLabel { background-color : #4478B7; }");
+        num = 2;
+    }
+    else {
+        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+        ui->l_third->setStyleSheet("QLabel { background-color : #4478B7; }");
+        num = 3;
+    }
     return true;
 }
 void Test2Dialog::randomize(QString const& first, QString const& second, QString const& third)

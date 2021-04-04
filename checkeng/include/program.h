@@ -18,7 +18,7 @@ namespace program {
         return GT_STR("checkeng.exe");
     }
     inline QString name() noexcept {
-        return GT_STR("CHeckEng");
+        return GT_STR("CheckEng");
     }
     inline QString regName() noexcept {
         return GT_STR("CheckEng");
@@ -94,15 +94,9 @@ namespace program {
     } // end namespace registry
     namespace paths {
         inline auto langs() noexcept -> QString {
-#if defined(Q_OS_LINUX)
-            return GT_STR("/usr/share/checkeng/langs");
-#endif
             return GT_APP_PATH("/langs");
         }
         inline auto translations() noexcept -> QString {
-#if defined(Q_OS_LINUX)
-            return GT_STR("/usr/share/checkeng/translations");
-#endif
             return GT_APP_PATH("/translations")
         }
         inline auto test1() noexcept -> QString {

@@ -10,8 +10,20 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools  Network REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools Network REQUIRED)
+find_package(QT NAMES
+    Qt6
+    Qt5
+    COMPONENTS
+    Widgets
+    LinguistTools
+    Network
+    REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR}
+    COMPONENTS
+    Widgets
+    LinguistTools
+    Network
+    REQUIRED)
 
 set(APP_PATH ${CMAKE_CURRENT_LIST_DIR})
 set(RESOURCES_PATH ${APP_PATH}/resources)
@@ -69,6 +81,7 @@ qt5_add_resources(MOC_RESOURCES
 add_subdirectory(dialogs)
 
 set(LIBS
+    languagedlg
     aboutdlg
     finishdlg
     addtasksdlg
@@ -78,6 +91,10 @@ set(LIBS
     addtasks2dlg
 )
 
+set_source_files_properties(${TranslationFiles}
+    PROPERTIES OUTPUT_LOCATION ${OUTPUT_PATH}/langs)
+qt5_add_translation(TS_FILES ${TranslationFiles})
+
 add_executable(checkeng WIN32
     main.cpp
     main_window.cpp
@@ -85,7 +102,6 @@ add_executable(checkeng WIN32
 
     main_window.ui
     ${MOC_RESOURCES}
-    ${RESOURCES_PATH}/a.rc
     ${TS_FILES}
 )
 
@@ -93,6 +109,4 @@ target_link_libraries(checkeng PRIVATE ${LIBS}
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Network
 )
-
-qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 
