@@ -6,7 +6,7 @@
 
 ;Defines
   !define VERSION_MAJOR 1
-  !define VERSION_MINOR 0
+  !define VERSION_MINOR 6
   !define VERSION_PATCH 6 
   !define VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
   !define PROJECT "CheckEng"
@@ -79,8 +79,8 @@ Section "Install"
    SetOutPath "$INSTDIR\\plugins"
    File /r "${FILES_PATH}plugins\\*.dll"
 
-   ;SetOutPath "$INSTDIR\\langs"
-   ;File "${FILES_PATH}langs\\*.qm"
+   SetOutPath "$INSTDIR\\langs"
+   File "${FILES_PATH}langs\\*.qm"
 
    SetOutPath "$INSTDIR"
    File "${UCRTBASE_PATH}\\*.dll"

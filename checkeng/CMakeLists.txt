@@ -99,6 +99,7 @@ add_executable(checkeng WIN32
     main.cpp
     main_window.cpp
     login/login.cpp
+    include/tr.h
 
     main_window.ui
     ${MOC_RESOURCES}
