@@ -35,14 +35,13 @@ private slots:
     void onAnswerClicked();
 
 public:
-    explicit Test2Dialog(QString const& dir, QString const& name, QWidget* parent = nullptr);
+    explicit Test2Dialog(QString const& dir, QWidget* parent = nullptr);
     ~Test2Dialog() override;
     void start();
 
 private:
     Ui::Test2* ui = nullptr;
     QString m_dir;
-    QString m_name;
     tasts_t m_tasks;
     int m_index = 0;
     int m_right = 0;

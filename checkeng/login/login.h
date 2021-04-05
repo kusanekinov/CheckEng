@@ -21,6 +21,10 @@ class LoginDialog: public QDialog {
     bool onChanged() noexcept;
     void onAccepted() noexcept;
 
+public:
+    QString Lname;
+
  private:
     std::unique_ptr<Ui::LoginDialog> ui;
+
 };

@@ -6,6 +6,9 @@ QObject QLineEdit{
 color:white;
 font-size: 16px;
 }
+QStatusBar{color:white;background-color: #5b6881;}
+#menubar{color:white;background-color: #5b6881;font-size: 15px;}
+#sab{background-color: #293141;}
 MainWindow{background-color: #293141;}
 #l_first{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
 #l_second{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
@@ -32,8 +35,8 @@ MainWindow{background-color: #293141;}
 #m_total{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
 #m_percent{color:white;min-height: 30px;background-color: #5b6881;border-radius: 5px;}
 #l_task{color:white;}
-#pb_new{font-size: 20px;border: 2px solid #C3BFD8;border-radius: 5px;}
-#pb_audio{font-size: 20px;border: 2px solid #C3BFD8;border-radius: 5px;}
+#pb_new{font-size: 20px;border: 2px solid #C3BFD8;border-radius: 5px;min-width:340px;}
+#pb_audio{font-size: 20px;border: 2px solid #C3BFD8;border-radius: 5px;min-width:340px;}
 #label{color:white;}
 #label_3{color:white;}
 #label_4{color:white;}
@@ -581,10 +584,11 @@ QLineEdit:focus {
     }
     /* QToolButton */
     QToolButton {
+        min-width: 55px;
         background-color: #36455A;
         color: #272e3a;
         border-radius: 3px;
-        width: 55px;
+        width: 77px;
         height: 33px;
         color: white;
         font-size: 16px;

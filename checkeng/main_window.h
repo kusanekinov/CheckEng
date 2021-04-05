@@ -14,6 +14,8 @@ class MainWindow: public QMainWindow {
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
     void setName(QString const& name) noexcept;
+    void deleteName();
+
 
  private slots:
     void onAboutClick();
@@ -26,6 +28,7 @@ class MainWindow: public QMainWindow {
     void loadFiles() noexcept;
     void loadTasks1(QVBoxLayout* lay) noexcept;
     void loadTasks2(QVBoxLayout* lay) noexcept;
+    void handleButton();
 
  private:
     Ui::MainWindow* ui = nullptr;

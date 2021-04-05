@@ -15,11 +15,11 @@
 #include "dialogs/add_tasks/add_tasks.h"
 #include "include/context.h"
 #include "dialogs/test1/test1.h"
-#include "login/login.h"
 #include "dialogs/test2/test2.h"
 #include "dialogs/add_tasks2/add_tasks2.h"
 #include "include/language.h"
 #include "include/tr.h"
+#include "login/login.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -49,12 +49,29 @@ void MainWindow::onLanguageClick()
 }
 void MainWindow::setName(QString const& name) noexcept
 {
-    m_name=name;
+    m_name = name;
+    QLabel *label = new QLabel(tr("Username: ") + m_name + tr(" "));
+    QPushButton *pb = new QPushButton("Change Username");
+    statusBar()->addWidget(label);
+    statusBar()->addWidget(pb);
+    pb->setStyleSheet("QPushButton {min-width:140px; color:white; border-radius: 5px;border: 2px solid #E1DFF1;}");
+    connect(pb, SIGNAL (released()),this, SLOT (handleButton()));
 }
-void MainWindow::onStart()
+void MainWindow::deleteName()
 {
-
+    m_name.clear();
 }
+void MainWindow::handleButton()
+{
+    deleteName();
+    LoginDialog dlg;
+    if(dlg.exec() == QDialog::Accepted) {
+        MainWindow w;
+        w.show();
+        setName(dlg.name());
+}
+}
+void MainWindow::onStart(){}
 void MainWindow::save() noexcept
 {
     auto const& group = QStringLiteral("dialogs/main/");
@@ -101,11 +118,7 @@ void MainWindow::loadTasks1(QVBoxLayout* lay) noexcept
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
         QObject::connect(btn, &QToolButton::clicked, [name] () {
-            LoginDialog login;
-            if(login.exec() != LoginDialog::Accepted)
-                return;
-
-            Test1Dialog dlg(name, login.name());
+            Test1Dialog dlg(name);
             dlg.exec();
         });
         v->addWidget(btn);
@@ -154,11 +167,7 @@ void MainWindow::loadTasks2(QVBoxLayout* lay) noexcept
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
         QObject::connect(btn, &QToolButton::clicked, [name] () {
-            LoginDialog login;
-            if(login.exec() != LoginDialog::Accepted)
-                return;
-
-            Test2Dialog dlg(name, login.name());
+            Test2Dialog dlg(name);
             dlg.exec();
         });
         v->addWidget(btn);

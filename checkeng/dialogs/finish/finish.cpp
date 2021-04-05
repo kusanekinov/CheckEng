@@ -1,13 +1,13 @@
 #include "finish.h"
 #include "ui_finish.h"
 
-FinishDialog::FinishDialog(QString const& name, int right, int total, QVector<Answer> const& answers, QWidget *parent)
+FinishDialog::FinishDialog(int right, int total, QVector<Answer> const& answers, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Finish)
 {
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
-    ui->m_name->setText(name);
+    //ui->m_name->setText(name);
     ui->m_correct->setText(QString::number(right));
     ui->m_total->setText(QString::number(total));
     ui->m_incorrect->setText(QString::number(total-right));
@@ -26,6 +26,7 @@ void FinishDialog::printAnswers(QVector<Answer> const& answers) noexcept
         w->setObjectName("answers1");
         auto l = new QGridLayout(w);
         auto q = new QLabel(i.question(), this);
+        q->setWordWrap(true);
         auto r = new QLabel(tr("Right Answer: ") + i.right(), this);
         r->setStyleSheet("QLabel { background-color: rgb(195, 255, 192); color: black;border-radius: 5px; margin-left: 6px; min-height: 27px; }");
         auto a = new QLabel(tr("Your Answer: ") + i.answer(), this);

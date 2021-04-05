@@ -11,11 +11,10 @@
 #include <QStringLiteral>
 #include <QMediaPlayer>
 
-Test2Dialog::Test2Dialog(QString const& dir, QString const& name, QWidget *parent)
+Test2Dialog::Test2Dialog(QString const& dir, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Test2)
     , m_dir(dir)
-    , m_name(name)
     , m_player(new QMediaPlayer)
 {
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
@@ -76,7 +75,7 @@ void Test2Dialog::nextTask()
     ui->tb_play->setProperty("isPlay", false);
 
     if(m_index >= m_tasks.size()) {
-        FinishDialog dlg(m_name, m_right, m_tasks.size(), m_answers);
+        FinishDialog dlg(m_right, m_tasks.size(), m_answers);
         dlg.exec();
         close();
 

@@ -2,13 +2,13 @@
 #include <QApplication>
 #include <QDir>
 #include <ctime>
-#include "include/program.h"
-#include "main_window.h"
 
+#include "include/program.h"
 #include "login/login.h"
 #include "dialogs/add_tasks/add_tasks.h"
 #include "dialogs/choose/choose.h"
 #include "include/app.h"
+#include "main_window.h"
 
 inline void addStyle() noexcept {
     QFile styleF(QStringLiteral(":/css/style.css"));
@@ -27,12 +27,17 @@ void init()
 }
 int main(int argc, char *argv[])
 {
-
     App a(argc, argv);
     init();
     addStyle();
 
-    MainWindow w;
-    w.show();
-    return a.exec();
+    LoginDialog dlg;
+    if(dlg.exec() == QDialog::Accepted) {
+        MainWindow w;
+        w.setName(dlg.name());
+        w.show();
+        return a.exec();
+    }
+
+    return 0;
 }

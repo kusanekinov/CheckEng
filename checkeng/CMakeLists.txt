@@ -85,7 +85,6 @@ set(LIBS
     aboutdlg
     finishdlg
     addtasksdlg
-    choosesdlg
     test1dlg
     test2dlg
     addtasks2dlg

@@ -2,6 +2,7 @@
 #include <QDate>
 #include "login.h"
 #include "ui_login.h"
+#include "main_window.h"
 
 LoginDialog::LoginDialog(QWidget* parent)
     : QDialog(parent)
@@ -12,8 +13,9 @@ LoginDialog::LoginDialog(QWidget* parent)
 }
 void LoginDialog::onAccepted() noexcept
 {
-    if(onChanged())
+    if(onChanged()){
         return;
+    }
 
     inherited::accept();
 }
@@ -25,8 +27,10 @@ bool LoginDialog::onChanged() noexcept
 }
 QString LoginDialog::name() const noexcept
 {
+
     return ui->m_login->text();
 }
 LoginDialog::~LoginDialog()
 {
+
 }

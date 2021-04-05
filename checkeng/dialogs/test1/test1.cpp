@@ -8,17 +8,17 @@
 #include <QDebug>
 #include <QPushButton>
 
-Test1Dialog::Test1Dialog(QString const& filename, QString const& name, QWidget *parent)
+Test1Dialog::Test1Dialog(QString const& filename, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Test1)
     , m_filename(filename)
-    , m_name(name)
 {
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     ui->l_first->installEventFilter(this);
     ui->l_second->installEventFilter(this);
     ui->l_third->installEventFilter(this);
+    ui->pb_answer->setEnabled(false);
     start();
 }
 Test1Dialog::~Test1Dialog()
@@ -60,13 +60,12 @@ void Test1Dialog::start()
     m_index = 0;
     m_right = 0;
     m_answers.clear();
-
     nextTask();
 }
 void Test1Dialog::nextTask()
 {
     if(m_index >= m_tasks.size()) {
-        FinishDialog dlg(m_name, m_right, m_tasks.size(), m_answers);
+        FinishDialog dlg(m_right, m_tasks.size(), m_answers);
         dlg.exec();
         close();
 
@@ -112,6 +111,8 @@ void Test1Dialog::answer(QLabel* btn)
         ++m_right;
     ++m_index;
     m_answers.back().setAnswer(btn->text());
+    ui->pb_answer->setEnabled(false);
+    num = 0;
     nextTask();
 }
 bool Test1Dialog::eventFilter(QObject* watched, QEvent* event)
@@ -120,22 +121,46 @@ bool Test1Dialog::eventFilter(QObject* watched, QEvent* event)
         return false;
 
     if(watched == ui->l_first){
-        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
-        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
-        ui->l_first->setStyleSheet("QLabel { background-color : #4478B7; }");
-        num = 1;
+        if(num == 1){
+            ui->pb_answer->setEnabled(false);
+            ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+            num = 0;
+        }
+        else{
+            ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+            ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+            ui->l_first->setStyleSheet("QLabel { background-color : #4478B7; }");
+            ui->pb_answer->setEnabled(true);
+            num = 1;
+        }
     }
     else if(watched == ui->l_second){
-        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
-        ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
-        ui->l_second->setStyleSheet("QLabel { background-color : #4478B7; }");
-        num = 2;
+        if(num == 2){
+            ui->pb_answer->setEnabled(false);
+            ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+            num = 0;
+        }
+        else{
+            ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+            ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+            ui->l_second->setStyleSheet("QLabel { background-color : #4478B7; }");
+            ui->pb_answer->setEnabled(true);
+           num = 2;
+        }
     }
     else {
-        ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
-        ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
-        ui->l_third->setStyleSheet("QLabel { background-color : #4478B7; }");
-        num = 3;
+        if(num == 3){
+            ui->pb_answer->setEnabled(false);
+            ui->l_third->setStyleSheet("QLabel { background-color : #5b6881; }");
+            num = 0;
+        }
+        else {
+            ui->l_first->setStyleSheet("QLabel { background-color : #5b6881; }");
+            ui->l_second->setStyleSheet("QLabel { background-color : #5b6881; }");
+            ui->l_third->setStyleSheet("QLabel { background-color : #4478B7; }");
+            ui->pb_answer->setEnabled(true);
+            num = 3;
+        }
     }
     return true;
 }

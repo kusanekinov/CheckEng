@@ -9,7 +9,6 @@
 #include "dialogs/add_tasks/add_tasks.h"
 #include "include/context.h"
 #include "dialogs/test1/test1.h"
-#include "login/login.h"
 #include "dialogs/test2/test2.h"
 #include "dialogs/add_tasks2/add_tasks2.h"
 
@@ -52,14 +51,6 @@ void ChooseDialog::loadTasks1(QVBoxLayout* lay) noexcept
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
-        QObject::connect(btn, &QToolButton::clicked, [name] () {
-            LoginDialog login;
-            if(login.exec() != LoginDialog::Accepted)
-                return;
-
-            Test1Dialog dlg(name, login.name());
-            dlg.exec();
-        });
         v->addWidget(btn);
 
         auto btn1 = new QToolButton();
@@ -105,14 +96,6 @@ void ChooseDialog::loadTasks2(QVBoxLayout* lay) noexcept
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
-        QObject::connect(btn, &QToolButton::clicked, [name] () {
-            LoginDialog login;
-            if(login.exec() != LoginDialog::Accepted)
-                return;
-
-            Test2Dialog dlg(name, login.name());
-            dlg.exec();
-        });
         v->addWidget(btn);
 
         auto btn1 = new QToolButton();

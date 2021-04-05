@@ -129,7 +129,7 @@
    </widget>
    <addaction name="menuAbout"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="action_About">
    <property name="text">
     <string>&amp;About</string>
