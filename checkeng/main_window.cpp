@@ -26,6 +26,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(pb, SIGNAL (released()),this, SLOT (handleButton()));
+    statusBar()->addWidget(label);
+    statusBar()->addWidget(pb);
     loadFiles();
     load();
 }
@@ -50,26 +53,15 @@ void MainWindow::onLanguageClick()
 void MainWindow::setName(QString const& name) noexcept
 {
     m_name = name;
-    QLabel *label = new QLabel(tr("Username: ") + m_name + tr(" "));
-    QPushButton *pb = new QPushButton("Change Username");
-    statusBar()->addWidget(label);
-    statusBar()->addWidget(pb);
+    label->setText(tr("Username: ") + m_name + tr(" "));
+    pb->setText("Change Username");
     pb->setStyleSheet("QPushButton {min-width:140px; color:white; border-radius: 5px;border: 2px solid #E1DFF1;}");
-    connect(pb, SIGNAL (released()),this, SLOT (handleButton()));
-}
-void MainWindow::deleteName()
-{
-    m_name.clear();
 }
 void MainWindow::handleButton()
 {
-    deleteName();
     LoginDialog dlg;
-    if(dlg.exec() == QDialog::Accepted) {
-        MainWindow w;
-        w.show();
-        setName(dlg.name());
-}
+    dlg.exec();
+    setName(dlg.name());
 }
 void MainWindow::onStart(){}
 void MainWindow::save() noexcept

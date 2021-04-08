@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(checkeng LANGUAGES CXX)
+project(checkeng)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -29,8 +29,6 @@ set(APP_PATH ${CMAKE_CURRENT_LIST_DIR})
 set(RESOURCES_PATH ${APP_PATH}/resources)
 set(TRANSLATIONS_PATH ${APP_PATH})
 set(OUTPUT_PATH ${APP_PATH}/bin)
-
-#set(TS_FILES en.ts)
 
 if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
     add_compile_options(
@@ -94,7 +92,8 @@ set_source_files_properties(${TranslationFiles}
     PROPERTIES OUTPUT_LOCATION ${OUTPUT_PATH}/langs)
 qt5_add_translation(TS_FILES ${TranslationFiles})
 
-add_executable(checkeng WIN32
+add_executable(checkeng
+    WIN32
     main.cpp
     main_window.cpp
     login/login.cpp

@@ -2,6 +2,8 @@
 #include <QMainWindow>
 #include <QList>
 #include <QVBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 
 namespace Ui {
     class MainWindow;
@@ -14,8 +16,6 @@ class MainWindow: public QMainWindow {
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
     void setName(QString const& name) noexcept;
-    void deleteName();
-
 
  private slots:
     void onAboutClick();
@@ -33,5 +33,7 @@ class MainWindow: public QMainWindow {
  private:
     Ui::MainWindow* ui = nullptr;
     QString m_name;
+    QLabel *label = new QLabel("zero");
+    QPushButton *pb = new QPushButton("Change Username");
 
 };

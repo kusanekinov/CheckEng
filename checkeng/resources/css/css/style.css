@@ -6,15 +6,15 @@ QObject QLineEdit{
 color:white;
 font-size: 16px;
 }
+#pb_addaudio{color:white;min-height: 30px;width:150px;border-radius: 5px;}
 QStatusBar{color:white;background-color: #5b6881;}
 #menubar{color:white;background-color: #5b6881;font-size: 15px;}
-#sab{background-color: #293141;}
+#sab{background-color: #242C3B;}
 MainWindow{background-color: #293141;}
 #l_first{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
 #l_second{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
 #l_third{color:white; background-color: #5b6881; border-radius: 10px;border: 2px solid #E1DFF1;}
 #pb_answer{font-size: 25px;border: 2px solid #C3BFD8; height: 60px; width: 300px;}
-#aboutC{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #answers1{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #w_tasks{color:white;font-size: 25px;border: 2px solid #C3BFD8;background-color: #5b6881;border-radius: 5px;}
 #your{color:white;}
@@ -101,8 +101,8 @@ QRadioButton::indicator:disabled {
     border: 1px solid #222936;
 }
 QPushButton{
-    min-width: 100px;
-    min-height: 35px;
+    width: 100px;
+    height: 35px;
     background: #36455A;
     border-radius: 5px;
     font-size: 16px;
@@ -584,7 +584,6 @@ QLineEdit:focus {
     }
     /* QToolButton */
     QToolButton {
-        min-width: 55px;
         background-color: #36455A;
         color: #272e3a;
         border-radius: 3px;
