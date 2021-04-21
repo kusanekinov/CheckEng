@@ -109,8 +109,8 @@ void MainWindow::loadTasks1(QVBoxLayout* lay) noexcept
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
-        QObject::connect(btn, &QToolButton::clicked, [name] () {
-            Test1Dialog dlg(name);
+        QObject::connect(btn, &QToolButton::clicked, [name, this] () {
+            Test1Dialog dlg(name, m_name);
             dlg.exec();
         });
         v->addWidget(btn);
@@ -158,8 +158,8 @@ void MainWindow::loadTasks2(QVBoxLayout* lay) noexcept
         auto w = new QWidget();
         auto v = new QHBoxLayout(w);
         auto btn = new QPushButton(filename);
-        QObject::connect(btn, &QToolButton::clicked, [name] () {
-            Test2Dialog dlg(name);
+        QObject::connect(btn, &QToolButton::clicked, [name, this] () {
+            Test2Dialog dlg(name, m_name);
             dlg.exec();
         });
         v->addWidget(btn);

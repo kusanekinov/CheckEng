@@ -32,7 +32,7 @@ private slots:
         void onAnswerClicked();
 
 public:
-    explicit Test1Dialog(QString const& file, QWidget* parent = nullptr);
+    explicit Test1Dialog(QString const& file, QString const& name, QWidget* parent = nullptr);
     ~Test1Dialog() override;
     void start();
 
@@ -40,6 +40,7 @@ private:
     Ui::Test1* ui = nullptr;
     QString m_filename;
     tasts_t m_tasks;
+    QString m_name;
     int m_index = 0;
     int m_right = 0;
     int num = 0;

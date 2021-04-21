@@ -1,13 +1,13 @@
 #include "finish.h"
 #include "ui_finish.h"
 
-FinishDialog::FinishDialog(int right, int total, QVector<Answer> const& answers, QWidget *parent)
+FinishDialog::FinishDialog(int right, int total, QVector<Answer> const& answers, QString const& name, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Finish)
 {
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
-    //ui->m_name->setText(name);
+    ui->m_name->setText(name);
     ui->m_correct->setText(QString::number(right));
     ui->m_total->setText(QString::number(total));
     ui->m_incorrect->setText(QString::number(total-right));

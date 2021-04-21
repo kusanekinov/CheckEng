@@ -35,7 +35,7 @@ private slots:
     void onAnswerClicked();
 
 public:
-    explicit Test2Dialog(QString const& dir, QWidget* parent = nullptr);
+    explicit Test2Dialog(QString const& dir, QString const& name, QWidget* parent = nullptr);
     ~Test2Dialog() override;
     void start();
 
@@ -49,4 +49,5 @@ private:
     int num = 0;
     QVector<Answer> m_answers;
     QMediaPlayer* m_player;
+    QString m_name;
 };
